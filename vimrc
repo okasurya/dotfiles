@@ -8,14 +8,8 @@ set softtabstop=4
 set norelativenumber
 set nu rnu
 
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 :imap jk <Esc>
 set clipboard=unnamed
-
-" ctrlp conf
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-" ctrlp conf
 
 " tab
 imap <C-t> <ESC>:tabnew<cr>
@@ -35,19 +29,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'Valloric/YouCompleteMe'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 
-" coc configuration
-
+" coc
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -202,4 +193,18 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-" end of coc
+" coc
+
+" fuzzy finder 
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+command! ProjectFiles execute 'Files' s:find_git_root()
+
+imap <C-p> <ESC>:ProjectFiles<cr>
+nmap <C-p> <ESC>:ProjectFiles<cr>
+map <C-p> <ESC>:ProjectFiles<cr>
+
+let g:ag_working_path_mode="r"
+" fuzzy finder
