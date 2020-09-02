@@ -6,6 +6,7 @@
 
 - link:
     ~/.tmux.conf: tmux.conf
+    ~/.tmux.local.conf: tmux.local.conf
     ~/.vimrc: vimrc
     ~/.config/tmuxinator: tmuxinator_config
     ~/.skhdrc: skhdrc
