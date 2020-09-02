@@ -1,0 +1,13 @@
+# /Users/brilliant.oka/.config/tmuxinator/top.yml
+
+name: top
+root: ~/
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - lazydocker
+        - gotop
+#  - server: bundle exec rails s
+#  - logs: tail -f log/development.log

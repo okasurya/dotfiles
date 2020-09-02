@@ -1,7 +1,8 @@
-# /Users/brilliant.oka/.config/tmuxinator/ide.yml
+# /Users/brilliant.oka/.config/tmuxinator/ide2.yml
 
-name: ide
-root: .
+name: android
+root: . 
+
 
 windows:
   - editor:

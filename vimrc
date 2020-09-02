@@ -7,6 +7,8 @@ set shiftwidth=4
 set softtabstop=4
 set norelativenumber
 set nu rnu
+set ruler
+set cursorline
 
 :imap jk <Esc>
 set clipboard=unnamed
@@ -35,6 +37,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 
@@ -208,3 +212,37 @@ map <C-p> <ESC>:ProjectFiles<cr>
 
 let g:ag_working_path_mode="r"
 " fuzzy finder
+
+" Ale
+let g:ale_disable_lsp = 1
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+" Ale
+
+" Git
+nmap <leader>gs :G<CR>
+nmap <leader>gd :Gdiffsplit<CR>
+nmap <leader>gc :Git commit<CR>
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gl :diffget //2<CR>
+" Git
+
+" status line
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? 'OK' : printf(
+        \   '%d⨉ %d⚠ ',
+        \   all_non_errors,
+        \   all_errors
+        \)
+endfunction
+
+set statusline+=%=
+set statusline+=%#warningmsg#
+set statusline+=\ %{LinterStatus()}
+set statusline+=%*
+set statusline+=%{FugitiveStatusline()}
+" status line

@@ -8,3 +8,6 @@
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
     ~/.config/tmuxinator: tmuxinator_config
+    ~/.skhdrc: skhdrc
+    ~/.yabairc: yabairc
+    ~/.tvrc: tvrc

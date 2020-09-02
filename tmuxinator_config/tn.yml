@@ -1,0 +1,11 @@
+# /Users/brilliant.oka/.config/tmuxinator/tn.yml
+
+name: tn
+root: ~/Works/notable
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - tn
+        - #empty

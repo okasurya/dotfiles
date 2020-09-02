@@ -1,0 +1,4 @@
+bind-key s      : session list
+bind-key space  : window next
+bind-key bspace : window prev
+bind-key enter  : layout change next
