@@ -1,13 +1,13 @@
 set nocompatible
 filetype off
-syntax on
+syntax enable
 
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 set norelativenumber
 set nu rnu
-set ruler
+"set ruler
 set cursorline
 
 :imap jk <Esc>
@@ -36,9 +36,30 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'JamshedVesuna/vim-markdown-preview'
+
+" language server & linter
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
+
+" Language
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'udalov/kotlin-vim'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'fatih/vim-go'
+
+" Python
+Plug 'nvie/vim-flake8'
+Plug 'Vimjas/vim-python-pep8-indent'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'moll/vim-node'
+
+" git
+Plug 'tpope/vim-fugitive'
+
+Plug 'romainl/vim-dichromatic'
 call plug#end()
 
 
