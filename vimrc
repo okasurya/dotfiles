@@ -57,9 +57,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 
 " git
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-
-Plug 'romainl/vim-dichromatic'
 call plug#end()
 
 

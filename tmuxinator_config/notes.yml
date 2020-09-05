@@ -1,6 +1,6 @@
-# /Users/brilliant.oka/.config/tmuxinator/tn.yml
+# /Users/brilliant.oka/.config/tmuxinator/notes.yml
 
-name: tn
+name: notes 
 root: ~/Works/notable
 
 windows:

@@ -1,6 +1,6 @@
-# /Users/brilliant.oka/.config/tmuxinator/ide.yml
+# /Users/brilliant.oka/.config/tmuxinator/idets.yml
 
-name: ts
+name: idets
 root: .
 
 # Optional tmux socket

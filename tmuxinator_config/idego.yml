@@ -1,6 +1,6 @@
 # /Users/brilliant.oka/.config/tmuxinator/idego.yml
 
-name: go
+name: idego
 root: .
 
 windows:
