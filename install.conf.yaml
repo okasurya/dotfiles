@@ -12,3 +12,5 @@
     ~/.skhdrc: skhdrc
     ~/.yabairc: yabairc
     ~/.tvrc: tvrc
+    ~/.zshrc: zshrc
+    ~/.aliasrc: aliasrc
