@@ -1,3 +1,8 @@
 alias notes="terminal_velocity"
 alias vim="nvim"
 alias tx="tmuxinator start"
+
+# cheatsheets
+cs() {
+    cat ~/.dotfiles/cheatsheets/$1
+}

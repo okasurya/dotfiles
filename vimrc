@@ -4,6 +4,7 @@ syntax enable
 
 set expandtab
 set shiftwidth=4
+set modifiable
 set softtabstop=4
 set norelativenumber
 set nu rnu
