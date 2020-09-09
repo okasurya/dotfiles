@@ -133,6 +133,7 @@ export LDFLAGS="-L/usr/local/opt/ncurses/lib"
 export CPPFLAGS="-I/usr/local/opt/ncurses/include"
 export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 export EDITOR="vim"
 
 # The next line updates PATH for the Google Cloud SDK.

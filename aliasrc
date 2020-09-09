@@ -6,3 +6,8 @@ alias tx="tmuxinator start"
 cs() {
     cat ~/.dotfiles/cheatsheets/$1
 }
+
+# ovpn
+ovpnfz() {
+    sudo openvpn ~/Works/payfazz/post-creds/ovpn/$1.ovpn
+}
