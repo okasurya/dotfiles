@@ -12,5 +12,10 @@ windows:
       panes:
         - vim
         - 
-  - server: make run 
+  - server: 
+      layout: main-horizontal
+      panes: 
+        - make run 
+        - # empty
+
 #  - logs: tail -f log/development.log

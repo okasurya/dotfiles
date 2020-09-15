@@ -7,7 +7,7 @@ cs() {
     cat ~/.dotfiles/cheatsheets/$1
 }
 
-# ovpn
-ovpnfz() {
+# vpn
+vpnfz() {
     sudo openvpn ~/Works/payfazz/post-creds/ovpn/$1.ovpn
 }
