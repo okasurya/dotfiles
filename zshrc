@@ -2,7 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export TERM=xterm-256color export ZSH="/Users/brilliant.oka/.oh-my-zsh"
+export TERM=xterm-256color 
+export ZSH="/home/brlnt/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -64,10 +65,11 @@ ZSH_THEME=""
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git brew history kubectl npm go z
+  git brew history kubectl npm golang z
 )
 
 source $ZSH/oh-my-zsh.sh
+
 
 # User configuration
 
@@ -145,5 +147,6 @@ if [ -f '/Users/brilliant.oka/google-cloud-sdk/completion.zsh.inc' ]; then . '/U
 source ~/.envrc
 source ~/.aliasrc
 
+fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
