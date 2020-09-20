@@ -1,6 +1,6 @@
 alias notes="terminal_velocity"
-alias vim="nvim"
 alias tx="tmuxinator start"
+alias vim="nvim"
 
 # cheatsheets
 cs() {
@@ -9,5 +9,5 @@ cs() {
 
 # vpn
 vpnfz() {
-    sudo openvpn ~/Works/payfazz/post-creds/ovpn/$1.ovpn
+    sudo openvpn ~/works/payfazz/post-creds/ovpn/$1.ovpn
 }
