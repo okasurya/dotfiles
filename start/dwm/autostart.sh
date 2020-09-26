@@ -1,6 +1,6 @@
 #!/bin/sh
 
-slstatus &
-~/.fehbg &
-bluetoothctl power on
-~/.start/externalMon &
+# slstatus &
+# ~/.fehbg &
+# bluetoothctl power on
+# ~/.start/externalMon &

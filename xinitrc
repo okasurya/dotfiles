@@ -7,6 +7,11 @@ dbus-update-activation-environment --systemd DISPLAY XAUTHORITY
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
+# slstatus &
+goblocks &
+~/.fehbg &
+bluetoothctl power on
+~/.start/externalMon &
 dunst &
 
 exec ~/.start/dwmexec
