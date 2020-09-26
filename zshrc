@@ -155,3 +155,8 @@ prompt pure
 # If not running interactively, do not do anything
 # [[ $- != *i* ]] && return
 # [[ -z "$TMUX" ]] && exec tmux
+
+source /usr/share/zsh/scripts/zplug/init.zsh
+zplug "momo-lab/zsh-abbrev-alias"
+zplug load
+source ~/.zshabbrc
