@@ -17,3 +17,5 @@
     ~/.start: start
     ~/.xinitrc: xinitrc
     ~/.zprofile: zprofile
+    ~/.statusbar: statusbar
+    ~/.config/goblocks.json: config/goblocks.json

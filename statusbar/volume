@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ $(amixer sget Master | awk -F"[][]" '/dB/ {print $6}') = "off" ] && echo "-" && exit
+
+amixer sget Master | awk -F"[][]" '/dB/ {print $2}'

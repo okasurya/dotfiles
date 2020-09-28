@@ -1,0 +1,48 @@
+{
+	"separator": " • ",
+	"actions": 
+	[
+		{
+			"prefix": "🔊 ",
+			"updateSignal": "36",
+			"command": "~/.statusbar/volume",
+			"timer": "0"
+		},
+		{
+			"prefix": "M:",
+			"updateSignal": "37",
+			"command": "#Memory",
+			"suffix": "%",
+			"format": "%.0f",		
+			"timer": "2s"
+		},
+		{
+			"prefix": "C:",
+			"updateSignal": "38",
+			"command": "#Cpu",
+			"suffix": "%",
+			"format": "%.0f",		
+			"timer": "2s"
+		},
+		{
+			"prefix": "W:",
+			"updateSignal": "39",
+			"command": "iwgetid | awk -F\"\\\"\" '/wlp3s0/ { print $2 }'",
+			"timer": "2s"
+		},
+		{
+			"prefix": "B:",
+			"updateSignal": "36",
+			"command": "~/.statusbar/battery",
+			"timer": "10s"
+		},
+		{
+			"prefix": "",
+			"updateSignal": "35",
+			"command": "#Date",		
+			"format": "Monday, 2006-01-02 15:04 ",		
+			"timer": "1s"
+		}
+	]
+
+}
