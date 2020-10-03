@@ -120,6 +120,7 @@ export PATH=$PATH:/Users/Shared/flutter/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.dwm
+export PATH=$PATH:$HOME/bin
 # export PATH="$HOME/.fastlane/bin:$PATH"
 
 # tabtab source for serverless package
@@ -136,7 +137,7 @@ export CPPFLAGS="-I/usr/local/opt/ncurses/include"
 export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/brilliant.oka/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/brilliant.oka/google-cloud-sdk/path.zsh.inc'; fi
@@ -160,3 +161,5 @@ source /usr/share/zsh/scripts/zplug/init.zsh
 zplug "momo-lab/zsh-abbrev-alias"
 zplug load
 source ~/.zshabbrc
+
+# eval "$(starship init zsh)"
