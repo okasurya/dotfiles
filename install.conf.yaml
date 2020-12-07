@@ -19,3 +19,4 @@
     ~/.zprofile: zprofile
     ~/.statusbar: statusbar
     ~/.config/goblocks.json: config/goblocks.json
+    ~/.config/dunst/dunstrc: config/dunst/dunstrc
