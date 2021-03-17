@@ -14,5 +14,5 @@ bluetoothctl power on
 ~/.start/externalMon &
 dunst &
 
-exec ~/.start/dwmexec
+# exec ~/.start/dwmexec
 # exec dwm

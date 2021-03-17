@@ -15,7 +15,7 @@
     ~/.zshrc: zshrc
     ~/.aliasrc: aliasrc
     ~/.start: start
-    ~/.xinitrc: xinitrc
+    ~/.xprofile: xprofile
     ~/.zprofile: zprofile
     ~/.statusbar: statusbar
     ~/.config/goblocks.json: config/goblocks.json
