@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=dwm
+Comment=Run dwm
+Exec=dwm
+Terminal=false
+StartupNotify=false
+Categories=Application;
