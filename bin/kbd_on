@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo sh -c 'echo 3 > /sys/class/leds/asus::kbd_backlight/brightness'

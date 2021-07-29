@@ -3,13 +3,7 @@
 	"actions": 
 	[
 		{
-			"prefix": "🔊 ",
-			"updateSignal": "36",
-			"command": "~/.statusbar/volume",
-			"timer": "0"
-		},
-		{
-			"prefix": "M:",
+			"prefix": "⏸ ",
 			"updateSignal": "37",
 			"command": "#Memory",
 			"suffix": "%",
@@ -17,7 +11,7 @@
 			"timer": "2s"
 		},
 		{
-			"prefix": "C:",
+			"prefix": "⚛ ",
 			"updateSignal": "38",
 			"command": "#Cpu",
 			"suffix": "%",
@@ -25,13 +19,20 @@
 			"timer": "2s"
 		},
 		{
-			"prefix": "W:",
+			"prefix": "",
+			"updateSignal": "41",
+			"command": "acpi -t | awk '{ printf(\"%d°\", $4)}'",
+			"suffix": "",
+			"timer": "300s"
+		},
+		{
+			"prefix": "↗ ",
 			"updateSignal": "39",
 			"command": "iwgetid | awk -F\"\\\"\" '/wlp3s0/ { print $2 }'",
 			"timer": "2s"
 		},
 		{
-			"prefix": "B:",
+			"prefix": "⏺ ",
 			"updateSignal": "40",
 			"command": "~/.statusbar/battery",
 			"timer": "10s"
@@ -40,7 +41,7 @@
 			"prefix": "",
 			"updateSignal": "35",
 			"command": "#Date",		
-			"format": "Monday, 2006-01-02 15:04:05 ",		
+			"format": "Monday 2006-01-02 15:04 ",		
 			"timer": "1s"
 		}
 	]

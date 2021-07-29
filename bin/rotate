@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "rotation $1"
+xrandr --output HDMI-A-0 --rotate $1
+~/.fehbg
