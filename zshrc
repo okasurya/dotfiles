@@ -156,11 +156,6 @@ prompt pure
 # [[ $- != *i* ]] && return
 # [[ -z "$TMUX" ]] && exec tmux
 
-source /usr/share/zsh/scripts/zplug/init.zsh
-zplug "momo-lab/zsh-abbrev-alias"
-zplug load
-source ~/.zshabbrc
-
 # eval "$(starship init zsh)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.

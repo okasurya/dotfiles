@@ -1,3 +1,5 @@
+<leader>    = \
+<C>         = control
 gt          : tab next
 gT          : tab prev
 <C-t>       : tab new

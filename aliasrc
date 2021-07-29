@@ -1,13 +1,27 @@
-alias notes="terminal_velocity"
-alias tx="tmuxinator start"
 alias vim="nvim"
+alias nvp="nordvpn connect"
+alias nvps="nordvpn status"
+alias nvpus="nordvpn connect united_states"
+alias nvpd="nordvpn disconnect"
 
 # cheatsheets
 cs() {
     cat ~/.dotfiles/cheatsheets/$1
 }
 
+csls() {
+    ls ~/.dotfiles/cheatsheets
+}
+
 # vpn
 vpnfz() {
-    sudo openvpn ~/works/payfazz/post-creds/ovpn/$1.ovpn
+    sudo openvpn ~/works/ffg/post-creds/ovpn/$1.ovpn
+}
+
+r() {
+    ~/bin/$1 $2
+}
+
+a() {
+    alacritty -e $1 $2
 }
