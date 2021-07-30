@@ -1,5 +1,5 @@
 {
-	"separator": " • ",
+	"separator": " ",
 	"actions": 
 	[
 		{
@@ -22,7 +22,7 @@
 			"timer": "10s"
 		},
 		{
-			"prefix": "",
+			"prefix": "⏹ ",
 			"updateSignal": "35",
 			"command": "#Date",		
 			"format": "Monday 2006-01-02 15:04 ",		
