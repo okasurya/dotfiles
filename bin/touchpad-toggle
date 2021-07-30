@@ -1,0 +1,5 @@
+#!/bin/bash
+
+stat=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
+synclient TouchpadOff=$stat
+notify-send "TouchpadOff:$stat"

@@ -15,5 +15,5 @@ bluetoothctl power on
 dunst &
 conky -q &
 
-# exec ~/.start/dwmexec
+exec ~/.start/dwmexec
 # exec dwm

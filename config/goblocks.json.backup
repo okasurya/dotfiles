@@ -3,17 +3,33 @@
 	"actions": 
 	[
 		{
-			"prefix": "↗ ",
-			"updateSignal": "39",
-			"command": "iwgetid | awk -F\"\\\"\" '/wlp3s0/ { print $2 }'",
+			"prefix": "⏸ ",
+			"updateSignal": "37",
+			"command": "#Memory",
+			"suffix": "%",
+			"format": "%.0f",		
 			"timer": "2s"
 		},
 		{
-			"prefix": "🌡 ",
+			"prefix": "⚛ ",
+			"updateSignal": "38",
+			"command": "#Cpu",
+			"suffix": "%",
+			"format": "%.0f",		
+			"timer": "2s"
+		},
+		{
+			"prefix": "",
 			"updateSignal": "41",
 			"command": "acpi -t | awk '{ printf(\"%d°\", $4)}'",
 			"suffix": "",
 			"timer": "300s"
+		},
+		{
+			"prefix": "↗ ",
+			"updateSignal": "39",
+			"command": "iwgetid | awk -F\"\\\"\" '/wlp3s0/ { print $2 }'",
+			"timer": "2s"
 		},
 		{
 			"prefix": "⏺ ",

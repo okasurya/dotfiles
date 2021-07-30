@@ -5,7 +5,11 @@ alias nvpd="nordvpn disconnect"
 
 # cheatsheets
 cs() {
-    cat ~/.dotfiles/cheatsheets/$1
+    if [ -z "$1"] 
+    then
+        return
+    fi
+    notify-send "$(cat ~/.dotfiles/cheatsheets/$1)"
 }
 
 csls() {
@@ -15,10 +19,6 @@ csls() {
 # vpn
 vpnfz() {
     sudo openvpn ~/works/ffg/post-creds/ovpn/$1.ovpn
-}
-
-r() {
-    ~/bin/$@
 }
 
 a() {
