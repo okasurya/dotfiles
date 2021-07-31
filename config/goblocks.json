@@ -9,13 +9,6 @@
 			"timer": "2s"
 		},
 		{
-			"prefix": "🌡 ",
-			"updateSignal": "41",
-			"command": "acpi -t | awk '{ printf(\"%d°\", $4)}'",
-			"suffix": "",
-			"timer": "300s"
-		},
-		{
 			"prefix": "⏺ ",
 			"updateSignal": "40",
 			"command": "~/.statusbar/battery",
