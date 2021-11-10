@@ -5,8 +5,8 @@ EXTERNAL_ACTIVE=0
 # functions to auto enable extenal display 
 function ActivateExternal {
     echo "Activate External Display"
-    xrandr --output eDP --off --output HDMI-A-0 --auto 
-#    xrandr --output eDP --left-of HDMI-A-0 --auto 
+    xrandr --output eDP --auto --output HDMI-A-0 --auto 
+    xrandr --output eDP --left-of HDMI-A-0 --auto 
     EXTERNAL_ACTIVE=1
 }
 
