@@ -1,6 +1,7 @@
 configuration {
-	theme: "/usr/share/rofi/themes/gruvbox-dark-hard.rasi";
         modi: "run,window,drun,ssh,combi,calc,filebrowser,emoji";
         font: "hack 13";
         combi-modi: "window,drun,emoji";
 }
+
+@theme "/usr/share/rofi/themes/gruvbox-dark-hard.rasi"
