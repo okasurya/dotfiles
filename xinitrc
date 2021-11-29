@@ -10,9 +10,11 @@ export SSH_AUTH_SOCK
 # slstatus &
 goblocks &
 ~/.fehbg &
+# wired --run & 
+dunst &
 bluetoothctl power on
 ~/.start/externalMon &
-dunst &
+
 conky -q &
 
 exec ~/.start/dwmexec
