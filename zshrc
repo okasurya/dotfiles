@@ -111,11 +111,11 @@ source $ZSH/oh-my-zsh.sh
 # POWERLINE CONFIGURATION END
 
 export GOPATH=$HOME/go
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
 export MONO_GAC_PREFIX="/usr/local"
 
 export PATH=$PATH:/Users/Shared/Android/Sdk/platform-tools:/Users/Shared/Android/Sdk/tools:/Users/Shared/Android/Sdk/emulator
-export PATH=$PATH:/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home/bin
+export PATH=$PATH:/Applications/Android\ Studio.app/Contents/jre/Contents/Home/bin
 export PATH=$PATH:/Users/Shared/flutter/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$GOPATH/bin
@@ -136,7 +136,7 @@ export CPPFLAGS="-I/usr/local/opt/ncurses/include"
 export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export EDITOR="nvim"
+export EDITOR="vim"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/brilliant.oka/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/brilliant.oka/google-cloud-sdk/path.zsh.inc'; fi
