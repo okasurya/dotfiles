@@ -21,6 +21,7 @@
     ~/.statusbar: statusbar
     ~/.config/goblocks.json: config/goblocks.json
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
+    ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
     ~/.config/rofi: config/rofi
     ~/.config/conky: config/conky
     ~/.rofi : rofi
