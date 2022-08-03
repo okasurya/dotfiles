@@ -1,0 +1,17 @@
+font:
+  size: 14
+
+window:
+  dimensions:
+    columns: 100
+    lines: 30
+  padding:
+    x: 10
+    y: 0
+
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux"
