@@ -13,7 +13,7 @@ set nu rnu
 set cursorline
 
 :imap jk <Esc>
-set clipboard+=unnamedplus
+set clipboard=unnamed
 
 " tab
 imap <C-t> <ESC>:tabnew<cr>
@@ -268,3 +268,5 @@ set statusline+=\ %{LinterStatus()}
 set statusline+=%*
 set statusline+=%{FugitiveStatusline()}
 " status line
+set background=dark
+set t_Co=256

@@ -159,5 +159,14 @@ prompt pure
 # eval "$(starship init zsh)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/opt/homebrew/opt/node@16/bin"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$PATH:$HOME/fvm/default/bin"
+
+# load [lang]env
+eval "$(pyenv init -)"
+eval "$(rbenv init - zsh)"
+eval "$(frum init)"
