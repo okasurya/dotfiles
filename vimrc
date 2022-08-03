@@ -13,7 +13,7 @@ set nu rnu
 set cursorline
 
 :imap jk <Esc>
-set clipboard=unnamed
+set clipboard^=unnamed,unnamedplus
 
 " tab
 imap <C-t> <ESC>:tabnew<cr>
