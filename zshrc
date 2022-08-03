@@ -167,6 +167,6 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/fvm/default/bin"
 
 # load [lang]env
-eval "$(pyenv init -)"
-eval "$(rbenv init - zsh)"
+# eval "$(pyenv init -)"
+# eval "$(rbenv init - zsh)"
 eval "$(frum init)"
