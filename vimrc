@@ -11,6 +11,7 @@ set norelativenumber
 set nu rnu
 "set ruler
 set cursorline
+set showcmd
 
 :imap jk <Esc>
 set clipboard^=unnamed,unnamedplus
@@ -60,6 +61,7 @@ Plug 'moll/vim-node'
 
 " git
 Plug 'tpope/vim-fugitive'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 
