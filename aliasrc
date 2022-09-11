@@ -1,7 +1,8 @@
-alias vim="nvim"
 alias nvp="nordvpn connect"
 alias nvpus="nordvpn connect united_states"
 alias nvpd="nordvpn disconnect"
+alias python="$(pyenv which python)"
+alias pip="$(pyenv which pip)"
 
 # cheatsheets
 cs() {
