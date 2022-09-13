@@ -165,6 +165,7 @@ export PATH="$PATH:/opt/homebrew/opt/node@16/bin"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/fvm/default/bin"
+export PATH="/usr/local/bin:$PATH"
 
 # load [lang]env
 # eval "$(pyenv init -)"
