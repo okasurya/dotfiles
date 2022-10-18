@@ -111,7 +111,6 @@ source $ZSH/oh-my-zsh.sh
 # POWERLINE CONFIGURATION END
 
 export GOPATH=$HOME/go
-export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
 export MONO_GAC_PREFIX="/usr/local"
 
 export PATH=$PATH:/Users/Shared/Android/Sdk/platform-tools:/Users/Shared/Android/Sdk/tools:/Users/Shared/Android/Sdk/emulator
