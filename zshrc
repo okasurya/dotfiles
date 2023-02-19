@@ -127,15 +127,6 @@ export PATH=$PATH:$HOME/.dwm
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-export PATH="/usr/local/opt/ruby@2.5/bin:$PATH"
-export PATH="/usr/local/opt/ncurses/bin:$PATH"
-# tmux
-# export LDFLAGS="-L/usr/local/opt/ncurses/lib"
-# export CPPFLAGS="-I/usr/local/opt/ncurses/include"
-export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export EDITOR="vim"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/brilliant.oka/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/brilliant.oka/google-cloud-sdk/path.zsh.inc'; fi
@@ -150,20 +141,22 @@ fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
 
-# auto start tmux
-# If not running interactively, do not do anything
-# [[ $- != *i* ]] && return
-# [[ -z "$TMUX" ]] && exec tmux
 
-# eval "$(starship init zsh)"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
+export EDITOR="vim"
 export PATH="$PATH:$HOME/bin"
 export VOLTA_HOME="$HOME/.volta"
+
+export PATH="/usr/local/opt/ruby@2.5/bin:$PATH"
+export PATH="/usr/local/opt/ncurses/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/fvm/default/bin"
 export PATH="/usr/local/bin:$PATH"
+export PATH="$PATH:$HOME/.dotnet/tools"
+export PATH="$PATH:/Users/Shared/android-sdk/emulator"
+export PATH="$PATH":"$HOME/.maestro/bin"
 
 # load [lang]env
 # eval "$(pyenv init -)"
