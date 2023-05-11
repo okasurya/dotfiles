@@ -156,9 +156,11 @@ export PATH="$PATH:$HOME/fvm/default/bin"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$PATH:/Users/Shared/android-sdk/emulator"
-export PATH="$PATH":"$HOME/.maestro/bin"
+export PATH="$PATH:$HOME/.maestro/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # load [lang]env
 # eval "$(pyenv init -)"
-# eval "$(rbenv init - zsh)"
-eval "$(frum init)"
+# eval "$(frum init)"
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
