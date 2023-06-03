@@ -4,6 +4,8 @@ alias nvpd="nordvpn disconnect"
 alias python="$(pyenv which python)"
 alias pip="$(pyenv which pip)"
 
+alias v="~/vpn/do.sh sgp"
+
 # cheatsheets
 cs() {
     if [ -z "$1"] 
