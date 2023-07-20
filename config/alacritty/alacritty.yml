@@ -9,10 +9,17 @@ window:
     x: 10
     y: 0
 
-
+      # shell:
+      #   program: /bin/zsh
+      #   args:
+      #     - -l
+      #     - -c
+      #     - "tmux"
 shell:
-  program: /bin/zsh
+  program: /opt/homebrew/bin/tmux
   args:
-    - -l
-    - -c
-    - "tmux"
+    - new-session
+    - -A
+    - -D
+    - -s
+    - main

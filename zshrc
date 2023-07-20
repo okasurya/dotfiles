@@ -158,6 +158,7 @@ export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$PATH:/Users/Shared/android-sdk/emulator"
 export PATH="$PATH:$HOME/.maestro/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:/opt/homebrew/bin"
 
 # load [lang]env
 # eval "$(pyenv init -)"
