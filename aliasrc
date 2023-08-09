@@ -1,12 +1,10 @@
 alias nvp="nordvpn connect"
 alias nvpus="nordvpn connect united_states"
 alias nvpd="nordvpn disconnect"
-
-alias v="~/vpn/do.sh sgp"
-
 alias python="$(pyenv which python)"
 alias pip="$(pyenv which pip)"
 alias gs="git status"
+alias v="~/vpn/do.sh sgp"
 
 # cheatsheets
 cs() {
@@ -19,11 +17,6 @@ cs() {
 
 csls() {
     ls ~/.dotfiles/cheatsheets
-}
-
-# vpn
-vpnfz() {
-    sudo openvpn ~/works/ffg/post-creds/ovpn/$1.ovpn
 }
 
 a() {
