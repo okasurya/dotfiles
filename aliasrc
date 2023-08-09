@@ -1,10 +1,12 @@
 alias nvp="nordvpn connect"
 alias nvpus="nordvpn connect united_states"
 alias nvpd="nordvpn disconnect"
-# alias python="$(pyenv which python)"
-# alias pip="$(pyenv which pip)"
 
 alias v="~/vpn/do.sh sgp"
+
+alias python="$(pyenv which python)"
+alias pip="$(pyenv which pip)"
+alias gs="git status"
 
 # cheatsheets
 cs() {
@@ -29,6 +31,6 @@ a() {
 }
 
 nvps() {
-   nvpstatus=$(nordvpn status) 
-   notify-send "NordVPN:$nvpstatus"
+    nvpstatus=$(nordvpn status) 
+    notify-send "NordVPN:$nvpstatus"
 }
