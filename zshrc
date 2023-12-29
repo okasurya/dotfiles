@@ -91,24 +91,6 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Uncomment the following line if you see unprintable characters in your prompt
-# POWERLINE CONFIGURATION 
-#
-# source ~/.oh-my-zsh/custom/themes/powerlevel10k/.purepower
-# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-#
-# POWERLINE CONFIGURATION END
 
 export GOPATH=$HOME/go
 export MONO_GAC_PREFIX="/usr/local"
@@ -119,28 +101,6 @@ export PATH=$PATH:/Users/Shared/flutter/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.dwm
-# export PATH="$HOME/.fastlane/bin:$PATH"
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/brilliant.oka/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/brilliant.oka/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/brilliant.oka/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/brilliant.oka/google-cloud-sdk/completion.zsh.inc'; fi
-
-source ~/.envrc
-source ~/.aliasrc
-
-fpath+=$HOME/.zsh/pure
-autoload -U promptinit; promptinit
-prompt pure
-
 
 export EDITOR="vim"
 export PATH="$PATH:$HOME/bin"
@@ -160,8 +120,11 @@ export PATH="$PATH:$HOME/.maestro/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/opt/homebrew/bin"
 
-# load [lang]env
-# eval "$(pyenv init -)"
-# eval "$(frum init)"
+source ~/.envrc
+source ~/.aliasrc
+
+fpath+=$HOME/.zsh/pure
+autoload -U promptinit; promptinit
+prompt pure
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
