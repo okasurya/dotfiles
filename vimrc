@@ -14,7 +14,7 @@ set cursorline
 set showcmd
 
 :imap jk <Esc>
-set clipboard^=unnamed,unnamedplus
+" set clipboard^=unnamed,unnamedplus
 
 " tab
 imap <C-t> <ESC>:tabnew<cr>
