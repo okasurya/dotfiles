@@ -1,5 +1,0 @@
-#!/bin/sh
-
-
-dunstctl set-paused false
-notify-send "Notification will be displayed"

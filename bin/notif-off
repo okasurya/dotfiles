@@ -1,5 +1,0 @@
-#!/bin/sh
-
-notify-send "Notification will be off"
-sleep 2
-dunstctl set-paused true

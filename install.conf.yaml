@@ -4,27 +4,11 @@
 
 - clean: ['~']
 
+- create:
+    - ~/.config/nvim
+
 - link:
-    ~/.tmux.conf: tmux.conf
-    ~/.tmux.local.conf: tmux.local.conf
     ~/.vimrc: vimrc
-    ~/.config/tmuxinator: tmuxinator_config
-    ~/.skhdrc: skhdrc
-    ~/.yabairc: yabairc
-    ~/.tvrc: tvrc
     ~/.zshrc: zshrc
     ~/.aliasrc: aliasrc
-    ~/.start: start
-    ~/.xinitrc: xinitrc
-    ~/.xprofile: xprofile
-    ~/.zprofile: zprofile
-    ~/.statusbar: statusbar
-    ~/.config/goblocks.json: config/goblocks.json
-    ~/.config/wired: config/wired
-    ~/.config/dunst/dunstrc: config/dunst/dunstrc
-    ~/.config/alacritty/alacritty.yml: config/alacritty/alacritty.yml
-    ~/.config/wired: config/wired
-    ~/.config/rofi: config/rofi
-    ~/.config/conky: config/conky
-    ~/.rofi : rofi
-    ~/bin: bin
+    ~/.config/nvim/init.vim: config/nvim/init.vim

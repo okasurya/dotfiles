@@ -1,4 +1,0 @@
-<prefix> s      : session list
-<prefix> space  : window next
-<prefix> bspace : window prev
-<prefix> enter  : layout change next
