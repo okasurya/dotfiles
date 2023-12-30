@@ -1,5 +1,6 @@
 # Pre requisite
-* Python
+* zsh
+* Python3
 
 # Installing dotbot
 ```
