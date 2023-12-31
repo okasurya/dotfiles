@@ -11,6 +11,7 @@ export EDITOR="nvim"
 source $ZSH/oh-my-zsh.sh
 
 source ~/.aliasrc
+source ~/.envrc
 
 # pure
 ZSH_THEME=""
