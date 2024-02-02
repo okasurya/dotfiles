@@ -11,7 +11,3 @@ window:
 
 shell:
   program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - /opt/homebrew/bin/tmux
