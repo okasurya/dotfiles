@@ -15,8 +15,8 @@ set cursorline
 set showcmd
 
 :imap jk <Esc>
-" clipboard setting
 
+" clipboard setting
 if has('macunix') " macOS
     set clipboard^=unnamed,unnamedplus
 elseif has('unix') " Linux 
@@ -32,15 +32,12 @@ else
   " TODO: Handle other operating systems
 endif
 
-
-
 " tab
 imap <C-t> <ESC>:tabnew<cr>
 nmap <C-t> <ESC>:tabnew<cr>
 map <C-t> <ESC>:tabnew<cr>
 " tab
 
-" coc
 " TextEdit might fail if hidden is not set.
 set hidden
 
