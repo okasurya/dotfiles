@@ -1,9 +1,7 @@
 # Pre requisite
 * zsh
-* Python3
 
-# Installing dotbot
+# Installing dotfiles 
 ```
-./install
-./dep.sh
+./setup
 ```
