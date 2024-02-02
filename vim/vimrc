@@ -22,12 +22,12 @@ if has('macunix') " macOS
 elseif has('unix') " Linux 
     " Set X11 clipboard configuration (replace xclip path if needed)
     set clipboard=unnamedplus
-    if has('autocmd')
-        au BufReadPost * :set pastetype=pastef
-        au BufLeavePost * :set pastetype=
-        vnoremap <C-y> :'<,'>w !xclip -selection clipboard<Cr><Cr>
-        nnoremap <C-v> "+p
-    endif
+"    if has('autocmd')
+"        au BufReadPost * :set pastetype=pastef
+"        au BufLeavePost * :set pastetype=
+"        vnoremap <C-y> :'<,'>w !xclip -selection clipboard<Cr><Cr>
+"        nnoremap <C-v> "+p
+"    endif
 else
   " TODO: Handle other operating systems
 endif
