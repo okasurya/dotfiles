@@ -11,3 +11,8 @@ window:
 
 shell:
   program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - tmux
+
