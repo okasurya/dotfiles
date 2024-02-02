@@ -1,19 +1,6 @@
 #!/bin/sh
 
-if [[ ! -f "$HOME/.brc" ]]; then
-    touch "$HOME/.brc"
-fi
-
-ln -sf "$PWD/zshrc" "$HOME/.zshrc"
-ln -sf "$PWD/aliasrc" "$HOME/.aliasrc"
-ln -sf "$PWD/zshrc" "$HOME/.zshrc"
-
-for i in vim; do
-    cd $i && ./setup
-    cd -
-done
-
-# install dependencies
+# first time setup
 
 # install vim plug
 if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
@@ -29,4 +16,20 @@ if [[ ! -d "$HOME/.zsh/pure" ]]; then
     mkdir -p "$HOME/.zsh"
     git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 fi
+
+# brc is short for brlntrc, my own local rc file
+if [[ ! -f "$HOME/.brc" ]]; then
+    touch "$HOME/.brc"
+fi
+
+
+# setup config
+ln -sf "$PWD/zshrc" "$HOME/.zshrc"
+ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
+
+for i in vim alacritty; do
+    cd $i && ./setup
+    cd -
+done
+
 

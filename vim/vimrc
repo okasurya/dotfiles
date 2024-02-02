@@ -22,29 +22,6 @@ nmap <C-t> <ESC>:tabnew<cr>
 map <C-t> <ESC>:tabnew<cr>
 " tab
 
-" nerd tree conf
-let g:NERDTreeShowLineNumbers=1
-autocmd BufEnter NERD_* setlocal rnu
-map <C-n> :NERDTreeToggle<CR>
-autocmd BufEnter * silent! lcd %:p:h
-let g:NERDTreeShowHidden=1
-" nerd tree conf
-
-call plug#begin('~/.vim/plugged')
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-surround'
-" 
-" git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'editorconfig/editorconfig-vim'
-call plug#end()
-
-
 " coc
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -73,34 +50,56 @@ set signcolumn=auto
 "   set signcolumn=yes
 " endif
 
+" oonly load plugins if Plug detected
+if filereadable(expand("~/.vim/autoload/plug.vim"))
+    call plug#begin('~/.vim/plugged')
+    Plug 'junegunn/vim-easy-align'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'scrooloose/nerdtree'
+    Plug 'tpope/vim-surround'
 
-" fuzzy finder 
-function! s:find_git_root()
-  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
-endfunction
+    " git
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'editorconfig/editorconfig-vim'
+    call plug#end()
 
-command! ProjectFiles execute 'Files' s:find_git_root()
+    " nerd tree conf
+    let g:NERDTreeShowLineNumbers=1
+    autocmd BufEnter NERD_* setlocal rnu
+    map <C-n> :NERDTreeToggle<CR>
+    autocmd BufEnter * silent! lcd %:p:h
+    let g:NERDTreeShowHidden=1
 
-imap <C-p> <ESC>:ProjectFiles<cr>
-nmap <C-p> <ESC>:ProjectFiles<cr>
-map <C-p> <ESC>:ProjectFiles<cr>
 
-let g:ag_working_path_mode="r"
-" fuzzy finder
+    " fuzzy finder 
+    function! s:find_git_root()
+      return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+    endfunction
+    
+    command! ProjectFiles execute 'Files' s:find_git_root()
+    
+    imap <C-p> <ESC>:ProjectFiles<cr>
+    nmap <C-p> <ESC>:ProjectFiles<cr>
+    map <C-p> <ESC>:ProjectFiles<cr>
+    
+    let g:ag_working_path_mode="r"
 
-" Git
-nmap <leader>gs :G<CR>
-nmap <leader>gd :Gdiffsplit<CR>
-nmap <leader>gc :Git commit<CR>
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gl :diffget //2<CR>
-" Git
+    " Git
+    nmap <leader>gs :G<CR>
+    nmap <leader>gd :Gdiffsplit<CR>
+    nmap <leader>gc :Git commit<CR>
+    nmap <leader>gh :diffget //3<CR>
+    nmap <leader>gl :diffget //2<CR>
+endif
 
+" styling 
 set statusline+=%=
 set statusline+=%#warningmsg#
 set statusline+=\ %{LinterStatus()}
 set statusline+=%*
 set statusline+=%{FugitiveStatusline()}
-" status line
 set background=dark
 set t_Co=256

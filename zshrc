@@ -3,10 +3,10 @@ _have() { type "$1" &>/dev/null; }
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
 plugins=(
   git brew history kubectl npm golang z aws
 )
+source $ZSH/oh-my-zsh.sh
 
 # alias 
 _have vim && export EDITOR="vim"
