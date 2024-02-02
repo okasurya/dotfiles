@@ -12,3 +12,4 @@
     ~/.zshrc: zshrc
     ~/.aliasrc: aliasrc
     ~/.config/nvim/init.vim: config/nvim/init.vim
+    ~/.tmux.conf: tmux.conf
