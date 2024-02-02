@@ -21,11 +21,26 @@ if _have nordvpn; then
 fi
 
 if _have pyenv; then
+    eval "$(pyenv init -)"
     alias python="$(pyenv which python)"
     alias pip="$(pyenv which pip)"
 fi
 
-[[ -f "$HOME/vpn/do.sh" ]] &&  alias v="~/vpn/do.sh sgp"
+if _have volta; then
+    export VOLTA_HOME="$HOME/.volta"
+    export PATH="$PATH:$VOLTA_HOME/bin"
+fi
+
+if _have go; then
+    export GOPATH=$HOME/go
+    export PATH="$PATH:$GOPATH/bin"
+fi
+
+_have brew && export PATH="$PATH:/opt/homebrew/bin"
+
+_have fvm && export PATH="$PATH:$HOME/fvm/default/bin"
+
+[[ -f "$HOME/vpn/do.sh" ]] &&  alias v="$HOME/vpn/do.sh sgp"
 
 # local config 
 # naming derived from brlntrc, shorten to brc 
