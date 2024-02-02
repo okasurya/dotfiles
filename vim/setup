@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ln -sf "$PWD/vimrc" "$HOME/.vimrc"
+
+# create folder if not exist
+mkdir -p "$HOME/.config/nvim"
+ln -sf "$PWD/init.vim" "$HOME/.config/nvim/init.vim"
+
