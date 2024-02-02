@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if type "alacritty" &>/dev/null; then
     mkdir -p "$HOME/.config/alacritty"
