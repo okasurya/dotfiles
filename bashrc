@@ -2,6 +2,9 @@
 _have() { type "$1" &>/dev/null; }
 _source_if() { [[ -r "$1" ]] && source "$1"; }
 
+# usually for mac usage
+_dot_if() { [[ -r "$1" ]] && . "$1"; }
+
 # -------------------- prompt styling --------------------
 
 PROMPT_LONG=20
@@ -27,8 +30,8 @@ __ps1() {
 	[[ -n "$B" ]] && B="$y($b$B$y)"
 
 	short="$u\u$y$PROMPT_AT$h\h$y:$w$dir$B$p$P$x "
-	long="$y╔ $u\u$y$PROMPT_AT$h\h$y:$w$dir$B\n$y╚ $p$P$x "
-	double="$y╔ $u\u$y$PROMPT_AT$h\h$y:$w$dir\n$y║ $B\n$y╚ $p$P$x "
+	long="$y╔$u\u$y$PROMPT_AT$h\h$y:$w$dir$B\n$y╚$p$P$x "
+	double="$y╔$u\u$y$PROMPT_AT$h\h$y:$w$dir\n$y║$B\n$y╚$p$P$x "
 
 	if ((${#countme} > PROMPT_MAX)); then
 		PS1="$double"
@@ -82,11 +85,11 @@ _have maestro && export PATH=$PATH:$HOME/.maestro/bin
 # local config 
 # naming derived from brlntrc, shorten to brc 
 _source_if "$HOME/.brc"
+_dot_if "/opt/homebrew/etc/profile.d/z.sh"
 
 # ----------------------- completion ---------------------
 
-# for mac
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+_dot_if "/usr/local/etc/profile.d/bash_completion.sh"
 
 _have z && . <(z completion bash)
 
