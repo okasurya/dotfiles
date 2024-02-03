@@ -74,7 +74,8 @@ if _have go; then
     export PATH="$PATH:$GOPATH/bin"
 fi
 
-_have brew && export PATH="$PATH:/opt/homebrew/bin"
+# TODO: add checking if mac
+export PATH="$PATH:/opt/homebrew/bin"
 _have fvm && export PATH="$PATH:$HOME/fvm/default/bin"
 _have maestro && export PATH=$PATH:$HOME/.maestro/bin
 

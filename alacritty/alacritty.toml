@@ -8,6 +8,6 @@ padding.x = 10
 padding.y = 0
 
 [shell]
-program = "/bin/zsh"
+program = "/bin/bash"
 args = ["-l", "-c", "tmux"]
 
