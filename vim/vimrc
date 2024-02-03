@@ -69,6 +69,11 @@ set signcolumn=auto
 "   set signcolumn=yes
 " endif
 
+" highlight search hits
+set hlsearch
+set incsearch
+set linebreak
+
 " only load plugins if Plug detected
 if filereadable(expand("~/.vim/autoload/plug.vim"))
   call plug#begin('~/.vim/plugged')
