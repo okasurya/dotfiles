@@ -27,7 +27,7 @@ fi
 ln -sf "$PWD/zshrc" "$HOME/.zshrc"
 ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$PWD/bashrc" "$HOME/.bashrc"
-ln -sf "$PWD/bash_profile" "$HOME/.bash_profile"
+ln -sf "$PWD/bashrc" "$HOME/.bash_profile"
 
 for i in vim alacritty; do
     cd $i && ./setup
