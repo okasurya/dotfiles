@@ -29,9 +29,12 @@ __ps1() {
 	[[ $B == master || $B == main ]] && b="$r"
 	[[ -n "$B" ]] && B="$y($b$B$y)"
 
+#	short="$u\u$y$PROMPT_AT$h\h$y:$w$dir$B$p$P$x "
+#	long="$y╔ $u\u$y$PROMPT_AT$h\h$y:$w$dir$B\n$y╚ $p$P$x "
+#	double="$y╔ $u\u$y$PROMPT_AT$h\h$y:$w$dir\n$y║ $B\n$y╚$p$P$x "
 	short="$u\u$y$PROMPT_AT$h\h$y:$w$dir$B$p$P$x "
-	long="$y╔$u\u$y$PROMPT_AT$h\h$y:$w$dir$B\n$y╚$p$P$x "
-	double="$y╔$u\u$y$PROMPT_AT$h\h$y:$w$dir\n$y║$B\n$y╚$p$P$x "
+	long="$y- $u\u$y$PROMPT_AT$h\h$y:$w$dir$B\n$y- $p$P$x "
+	double="$y- $u\u$y$PROMPT_AT$h\h$y:$w$dir\n$y| $B\n$y- $p$P$x "
 
 	if ((${#countme} > PROMPT_MAX)); then
 		PS1="$double"
