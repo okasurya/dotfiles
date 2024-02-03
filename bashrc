@@ -86,6 +86,7 @@ _have maestro && export PATH=$PATH:$HOME/.maestro/bin
 # naming derived from brlntrc, shorten to brc 
 _source_if "$HOME/.brc"
 _dot_if "/opt/homebrew/etc/profile.d/z.sh"
+_dot_if "/usr/share/z/z.sh"
 
 # ----------------------- completion ---------------------
 
