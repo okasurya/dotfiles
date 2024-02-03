@@ -4,10 +4,14 @@ filetype off
 syntax enable
 
 set expandtab
-set shiftwidth=4
 set mouse=a
 set modifiable
-set softtabstop=4
+
+set shiftwidth=2
+set softtabstop=2
+set smarttab
+set textwidth=72
+
 set norelativenumber
 set nu rnu
 "set ruler
@@ -18,10 +22,10 @@ set showcmd
 
 " clipboard setting
 if has('macunix') " macOS
-    set clipboard^=unnamed,unnamedplus
+  set clipboard^=unnamed,unnamedplus
 elseif has('unix') " Linux 
-    " Set X11 clipboard configuration (replace xclip path if needed)
-    set clipboard=unnamedplus
+  " Set X11 clipboard configuration (replace xclip path if needed)
+  set clipboard=unnamedplus
 "    if has('autocmd')
 "        au BufReadPost * :set pastetype=pastef
 "        au BufLeavePost * :set pastetype=
@@ -65,49 +69,49 @@ set signcolumn=auto
 "   set signcolumn=yes
 " endif
 
-" oonly load plugins if Plug detected
+" only load plugins if Plug detected
 if filereadable(expand("~/.vim/autoload/plug.vim"))
-    call plug#begin('~/.vim/plugged')
-    Plug 'junegunn/vim-easy-align'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'vim-airline/vim-airline'
-    Plug 'scrooloose/nerdtree'
-    Plug 'tpope/vim-surround'
+  call plug#begin('~/.vim/plugged')
+  Plug 'junegunn/vim-easy-align'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'vim-airline/vim-airline'
+  Plug 'scrooloose/nerdtree'
+  Plug 'tpope/vim-surround'
 
-    " git
-    Plug 'tpope/vim-fugitive'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'editorconfig/editorconfig-vim'
-    call plug#end()
+  " git
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'editorconfig/editorconfig-vim'
+  call plug#end()
 
-    " nerd tree conf
-    let g:NERDTreeShowLineNumbers=1
-    autocmd BufEnter NERD_* setlocal rnu
-    map <C-n> :NERDTreeToggle<CR>
-    autocmd BufEnter * silent! lcd %:p:h
-    let g:NERDTreeShowHidden=1
+  " nerd tree conf
+  let g:NERDTreeShowLineNumbers=1
+  autocmd BufEnter NERD_* setlocal rnu
+  map <C-n> :NERDTreeToggle<CR>
+  autocmd BufEnter * silent! lcd %:p:h
+  let g:NERDTreeShowHidden=1
 
 
-    " fuzzy finder 
-    function! s:find_git_root()
-      return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
-    endfunction
-    
-    command! ProjectFiles execute 'Files' s:find_git_root()
-    
-    imap <C-p> <ESC>:ProjectFiles<cr>
-    nmap <C-p> <ESC>:ProjectFiles<cr>
-    map <C-p> <ESC>:ProjectFiles<cr>
-    
-    let g:ag_working_path_mode="r"
+  " fuzzy finder 
+  function! s:find_git_root()
+    return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+  endfunction
+  
+  command! ProjectFiles execute 'Files' s:find_git_root()
+  
+  imap <C-p> <ESC>:ProjectFiles<cr>
+  nmap <C-p> <ESC>:ProjectFiles<cr>
+  map <C-p> <ESC>:ProjectFiles<cr>
+  
+  let g:ag_working_path_mode="r"
 
-    " Git
-    nmap <leader>gs :G<CR>
-    nmap <leader>gd :Gdiffsplit<CR>
-    nmap <leader>gc :Git commit<CR>
-    nmap <leader>gh :diffget //3<CR>
-    nmap <leader>gl :diffget //2<CR>
+  " Git
+  nmap <leader>gs :G<CR>
+  nmap <leader>gd :Gdiffsplit<CR>
+  nmap <leader>gc :Git commit<CR>
+  nmap <leader>gh :diffget //3<CR>
+  nmap <leader>gl :diffget //2<CR>
 endif
 
 " styling 
