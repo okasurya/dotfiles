@@ -54,7 +54,7 @@ __ps1_simple() {
   
   B=$(git branch --show-current 2>/dev/null)
   [[ $B == master || $B == main ]] && b="$r"
-  [[ -n "$B" ]] && B=" $y($b$B$y)"
+  [[ -n "$B" ]] && B="$y($b$B$y)"
   
   short="$u\u$y$PROMPT_AT$h\h$y:$w$dir$B\n$p$P$x "
   
