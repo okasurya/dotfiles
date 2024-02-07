@@ -42,7 +42,26 @@ __ps1() {
 	fi
 }
 
-# PROMPT_COMMAND="__ps1"
+__ps1_simple() {
+  local P='$' dir="${PWD##*/}" B short \
+    r='\[\e[31m\]' g='\[\e[30m\]' h='\[\e[34m\]' \
+    u='\[\e[33m\]' p='\[\e[34m\]' w='\[\e[35m\]' \
+    b='\[\e[36m\]' x='\[\e[0m\]' y='\[\e[97m\]'
+
+  [[ $EUID == 0 ]] && P='#' && u=$r && p=$u # root
+  [[ $PWD = / ]] && dir=/
+  [[ $PWD = "$HOME" ]] && dir='~'
+  
+  B=$(git branch --show-current 2>/dev/null)
+  [[ $B == master || $B == main ]] && b="$r"
+  [[ -n "$B" ]] && B=" $y($b$B$y)"
+  
+  short="$u\u$y$PROMPT_AT$h\h$y:$w$dir$B\n$p$P$x "
+  
+  PS1="$short"
+}
+
+PROMPT_COMMAND="__ps1_simple"
 
 # --------------------------------------------------------
 
