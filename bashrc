@@ -42,7 +42,7 @@ __ps1() {
 	fi
 }
 
-PROMPT_COMMAND="__ps1"
+# PROMPT_COMMAND="__ps1"
 
 # --------------------------------------------------------
 
@@ -92,6 +92,7 @@ _source_if "$HOME/.brc"
 # ----------------------- completion ---------------------
 
 _dot_if "/usr/local/etc/profile.d/bash_completion.sh"
+_dot_if "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 _have z && . <(z completion bash)
 
