@@ -83,6 +83,9 @@ if _have pyenv; then
     alias pip="$(pyenv which pip)"
 fi
 
+_have kubectl && alias k=kubectl
+_have kubectl && complete -F __start_kubectl k
+
 if _have volta; then
     export VOLTA_HOME="$HOME/.volta"
     export PATH="$PATH:$VOLTA_HOME/bin"
