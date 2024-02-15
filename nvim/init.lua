@@ -34,7 +34,7 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
 
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  -- 'tpope/vim-sleuth',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -234,8 +234,10 @@ require('lazy').setup({
     'nvim-tree/nvim-tree.lua',
     dependencies = {
       'nvim-tree/nvim-web-devicons'
-    }
+    },
   },
+  'editorconfig/editorconfig-vim',
+
   -- { import = 'custom.plugins' },
 }, {})
 
@@ -246,19 +248,19 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
 
--- Enable mouse mode
-vim.o.mouse = 'a'
-
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
-
+if vim.loop.os_uname().sysname == 'Darwin' then
+  vim.o.clipboard = 'unnamed,unnamedplus'
+else
+  vim.o.clipboard = 'unnamedplus'
+end
 -- Enable break indent
 vim.o.breakindent = true
 
@@ -282,8 +284,17 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
--- [[ Basic Keymaps ]]
+vim.o.number = true -- Enable line numbers
+vim.o.relativenumber = true -- Enable relative line numbers
+-- vim.o.cursorline = true
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
+vim.o.smarttab = true
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- [[ Basic Keymaps ]]
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -308,6 +319,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- [[ Configure statusline ]]
+require('lualine').setup {
+  sections = {
+    lualine_c = {
+      {
+        'filename',
+        file_status = true,      -- Displays file status (readonly status, modified status)
+        newfile_status = false,  -- Display new file status (new file means no write after created)
+        path = 1,                -- 0: Just the filename
+                                 -- 1: Relative path
+      }
+    }
+  }
+}
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -389,6 +415,43 @@ vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by 
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
+-- [[ New Tab ]]
+vim.keymap.set('n', '<C-t>', '<ESC>:tabnew<cr>')
+vim.keymap.set('i', '<C-t>', '<ESC>:tabnew<cr>')
+vim.keymap.set('v', '<C-t>', '<ESC>:tabnew<cr>')
+
+
+-- [[ File tree ]]
+require('nvim-tree').setup {
+  vim.keymap.set('n', '<leader>e', '<Esc>:NvimTreeToggle<cr>'),
+  vim.keymap.set('n', '<leader>f', '<Esc>:NvimTreeFindFile<cr>'),
+
+  require('which-key').register {
+    ['<leader>e'] = { name = 'File [E]xplorer', _ = 'which_key_ignore' },
+    ['<leader>f'] = { name = '[F]ind File Explorer', _ = 'which_key_ignore' },
+  },
+  filters = { custom = { "^.git$" } },
+  renderer = {
+    icons = {
+      show = {
+        file = false,
+        folder = false,
+        folder_arrow = true,
+        git = true,
+      },
+      glyphs = {
+        folder = {
+          arrow_closed = ">",
+          arrow_open = "-",
+        },
+      },
+    },
+  },
+  view = {
+    number = true,
+    relativenumber = true,
+  }
+}
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
@@ -635,6 +698,15 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+--[[ 
+-- Telescope keybindings
+--
+<C-n> / <Down>	Next item
+<C-p> / <Up>	Previous item
+--
+]]--
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
