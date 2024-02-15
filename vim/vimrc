@@ -80,9 +80,10 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   Plug 'junegunn/vim-easy-align'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'vim-airline/vim-airline'
+  " Plug 'vim-airline/vim-airline'
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-surround'
+  Plug 'williamboman/mason.nvim'
 
   " git
   Plug 'tpope/vim-fugitive'
@@ -120,9 +121,10 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
 endif
 
 " styling 
+set statusline+=%{expand('%:p:h:t')}/%t
 set statusline+=%=
 set statusline+=%#warningmsg#
-set statusline+=\ %{LinterStatus()}
+" set statusline+=\ %{LinterStatus()}
 set statusline+=%*
 set statusline+=%{FugitiveStatusline()}
 set background=dark

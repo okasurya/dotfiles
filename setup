@@ -22,12 +22,17 @@ if [[ ! -f "$HOME/.brc" ]]; then
     touch "$HOME/.brc"
 fi
 
+if [[ ! -d "$HOME/.config/nvim" ]]; then
+    mkdir -p "$HOME/.config"
+fi
+
 
 # setup config
 ln -sf "$PWD/zshrc" "$HOME/.zshrc"
 ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$PWD/bashrc" "$HOME/.bashrc"
 ln -sf "$PWD/bashrc" "$HOME/.bash_profile"
+ln -sf "$PWD/nvim" "$HOME/.config"
 
 for i in vim alacritty; do
     cd $i && ./setup
