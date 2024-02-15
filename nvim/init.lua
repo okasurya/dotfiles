@@ -206,6 +206,8 @@ require('lazy').setup({
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
       -- Only load if `make` is available. Make sure you have the system
       -- requirements installed.
@@ -286,7 +288,8 @@ vim.o.termguicolors = true
 
 vim.o.number = true -- Enable line numbers
 vim.o.relativenumber = true -- Enable relative line numbers
--- vim.o.cursorline = true
+
+vim.o.cursorline = true
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.o.smarttab = true
@@ -297,6 +300,7 @@ vim.g.loaded_netrwPlugin = 1
 -- [[ Basic Keymaps ]]
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
+vim.keymap.set('i', 'jk', '<Esc>', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
@@ -416,21 +420,18 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
 -- [[ New Tab ]]
-vim.keymap.set('n', '<C-t>', '<ESC>:tabnew<cr>')
-vim.keymap.set('i', '<C-t>', '<ESC>:tabnew<cr>')
-vim.keymap.set('v', '<C-t>', '<ESC>:tabnew<cr>')
+vim.keymap.set({'n', 'i', 'v'}, '<C-t>', '<ESC>:tabnew<cr>')
 
-
--- [[ File tree ]]
+-- [[ Configure File tree ]]
 require('nvim-tree').setup {
-  vim.keymap.set('n', '<leader>e', '<Esc>:NvimTreeToggle<cr>'),
-  vim.keymap.set('n', '<leader>f', '<Esc>:NvimTreeFindFile<cr>'),
+  vim.keymap.set('n', '<leader>e', '<Esc>:NvimTreeToggle<cr>', { silent = true }),
+  vim.keymap.set('n', '<leader>f', '<Esc>:NvimTreeFindFile<cr>', { silent = true }),
 
   require('which-key').register {
     ['<leader>e'] = { name = 'File [E]xplorer', _ = 'which_key_ignore' },
     ['<leader>f'] = { name = '[F]ind File Explorer', _ = 'which_key_ignore' },
   },
-  filters = { custom = { "^.git$" } },
+  filters = { custom = { "^.git$" } }, -- filter out git folder
   renderer = {
     icons = {
       show = {
@@ -441,7 +442,7 @@ require('nvim-tree').setup {
       },
       glyphs = {
         folder = {
-          arrow_closed = ">",
+          arrow_closed = "+",
           arrow_open = "-",
         },
       },
@@ -452,6 +453,7 @@ require('nvim-tree').setup {
     relativenumber = true,
   }
 }
+
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
@@ -702,8 +704,32 @@ cmp.setup {
 --[[ 
 -- Telescope keybindings
 --
-<C-n> / <Down>	Next item
-<C-p> / <Up>	Previous item
+| Mappings       | Action                                                    |
+| -------------- | --------------------------------------------------------- |
+| `<C-n>/<Down>` | Next item                                                 |
+| `<C-p>/<Up>`   | Previous item                                             |
+| `j/k`          | Next/previous (in normal mode)                            |
+| `H/M/L`        | Select High/Middle/Low (in normal mode)                   |
+| `gg/G`         | Select the first/last item (in normal mode)               |
+| `<CR>`         | Confirm selection                                         |
+| `<C-x>`        | Go to file selection as a split                           |
+| `<C-v>`        | Go to file selection as a vsplit                          |
+| `<C-t>`        | Go to a file in a new tab                                 |
+| `<C-u>`        | Scroll up in preview window                               |
+| `<C-d>`        | Scroll down in preview window                             |
+| `<C-f>`        | Scroll left in preview window                             |
+| `<C-k>`        | Scroll right in preview window                            |
+| `<M-f>`        | Scroll left in results window                             |
+| `<M-k>`        | Scroll right in results window                            |
+| `<C-/>`        | Show mappings for picker actions (insert mode)            |
+| `?`            | Show mappings for picker actions (normal mode)            |
+| `<C-c>`        | Close telescope (insert mode)                             |
+| `<Esc>`        | Close telescope (in normal mode)                          |
+| `<Tab>`        | Toggle selection and move to next selection               |
+| `<S-Tab>`      | Toggle selection and move to prev selection               |
+| `<C-q>`        | Send all items not filtered to quickfixlist (qflist)      |
+| `<M-q>`        | Send all selected items to qflist                         |
+| `<C-r><C-w>`   | Insert cword in original window into prompt (insert mode) |
 --
 ]]--
 
