@@ -480,7 +480,11 @@ require('nvim-tree').setup {
   view = {
     number = true,
     relativenumber = true,
-  }
+  },
+  update_focused_file = {
+    enable = true,
+  },
+
 }
 
 -- [[ Configure Treesitter ]]
