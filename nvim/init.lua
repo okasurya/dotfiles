@@ -8,6 +8,15 @@ vim.g.maplocalleader = ' '
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local openFn = 'xdg-open'
+local clipboard = 'unnamedplus'
+
+-- Mac OS specific settings
+if vim.loop.os_uname().sysname == 'Darwin' then
+  openFn = 'open'
+  clipboard = 'unnamed,unnamedplus'
+end
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
     'git',
@@ -268,31 +277,12 @@ vim.o.hlsearch = true
 -- Make line numbers default
 vim.wo.number = true
 
-if vim.loop.os_uname().sysname == 'Darwin' then
-  -- Sync clipboard between OS and Neovim.
-  --  Remove this option if you want your OS clipboard to remain independent.
-  --  See `:help 'clipboard'`
-  vim.o.clipboard = 'unnamed,unnamedplus'
+-- Sync clipboard between OS and Neovim.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+vim.o.clipboard = clipboard
 
-  -- Open browser
-  vim.api.nvim_create_user_command(
-    'Browse',
-    function (opts)
-      vim.fn.system { 'open', opts.fargs[1] }
-    end,
-    { nargs = 1 }
-  )
 
-else
-  vim.o.clipboard = 'unnamedplus'
-  vim.api.nvim_create_user_command(
-    'Browse',
-    function (opts)
-      vim.fn.system { 'xdg-open', opts.fargs[1] }
-    end,
-    { nargs = 1 }
-  )
-end
 -- Enable break indent
 vim.o.breakindent = true
 
@@ -342,6 +332,15 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- open browser
+vim.api.nvim_create_user_command(
+  'Browse',
+  function (opts)
+    vim.fn.system { openFn, opts.fargs[1] }
+  end,
+  { nargs = 1 }
+)
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
