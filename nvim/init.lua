@@ -268,13 +268,30 @@ vim.o.hlsearch = true
 -- Make line numbers default
 vim.wo.number = true
 
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 if vim.loop.os_uname().sysname == 'Darwin' then
+  -- Sync clipboard between OS and Neovim.
+  --  Remove this option if you want your OS clipboard to remain independent.
+  --  See `:help 'clipboard'`
   vim.o.clipboard = 'unnamed,unnamedplus'
+
+  -- Open browser
+  vim.api.nvim_create_user_command(
+    'Browse',
+    function (opts)
+      vim.fn.system { 'open', opts.fargs[1] }
+    end,
+    { nargs = 1 }
+  )
+
 else
   vim.o.clipboard = 'unnamedplus'
+  vim.api.nvim_create_user_command(
+    'Browse',
+    function (opts)
+      vim.fn.system { 'xdg-open', opts.fargs[1] }
+    end,
+    { nargs = 1 }
+  )
 end
 -- Enable break indent
 vim.o.breakindent = true
