@@ -72,8 +72,12 @@ require('lazy').setup({
     },
   },
 
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  {
+    -- Useful plugin to show you pending keybinds.
+    'folke/which-key.nvim',
+    opts = {}
+  },
+
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -186,11 +190,15 @@ require('lazy').setup({
     opts = {},
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
 
-  -- Fuzzy Finder (files, lsp, etc)
   {
+    -- "gc" to comment visual regions/lines
+    'numToStr/Comment.nvim',
+    opts = {}
+  },
+
+  {
+    -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = {
@@ -222,13 +230,20 @@ require('lazy').setup({
   },
 
   {
+    -- File tree
     'nvim-tree/nvim-tree.lua',
     dependencies = {
       'nvim-tree/nvim-web-devicons'
     },
   },
-  'editorconfig/editorconfig-vim',
+
   {
+    -- Automatically reads .editorconfig file
+    'editorconfig/editorconfig-vim',
+  },
+
+  {
+    -- Github PR Review
     'pwntester/octo.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -237,5 +252,13 @@ require('lazy').setup({
     },
   },
 
-  { import = 'plugins' },
+  {
+    -- auto close brackets, quotes, etc
+    'm4xshen/autoclose.nvim',
+  },
+
+  {
+    -- import from local lua/plugins folder
+    import = 'plugins'
+  },
 }, {})

@@ -49,7 +49,7 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
-vim.o.number = true -- Enable line numbers
+vim.o.number = true         -- Enable line numbers
 vim.o.relativenumber = true -- Enable relative line numbers
 
 vim.o.cursorline = true
@@ -63,7 +63,7 @@ vim.g.loaded_netrwPlugin = 1
 -- open browser
 vim.api.nvim_create_user_command(
   'Browse',
-  function (opts)
+  function(opts)
     vim.fn.system { openFn, opts.fargs[1] }
   end,
   { nargs = 1 }
@@ -76,10 +76,10 @@ require('lualine').setup {
     lualine_c = {
       {
         'filename',
-        file_status = true,      -- Displays file status (readonly status, modified status)
-        newfile_status = false,  -- Display new file status (new file means no write after created)
-        path = 1,                -- 0: Just the filename
-                                 -- 1: Relative path
+        file_status = true,     -- Displays file status (readonly status, modified status)
+        newfile_status = false, -- Display new file status (new file means no write after created)
+        path = 1,               -- 0: Just the filename
+        -- 1: Relative path
       }
     }
   }
@@ -100,3 +100,6 @@ require('telescope').setup {
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
+
+-- enable autoclose
+require("autoclose").setup()
