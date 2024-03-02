@@ -1,5 +1,5 @@
 # Pre requisite
-* zsh
+* bash
 
 # Installing dotfiles 
 ```
