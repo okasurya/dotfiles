@@ -6,7 +6,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require('lazyload')
+require('lazyplugin')
 require('style')
 require('editor')
 require('keymap')
