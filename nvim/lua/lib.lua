@@ -234,6 +234,7 @@ require('lazy').setup({
       'nvim-telescope/telescope.nvim',
       'nvim-tree/nvim-web-devicons',
     },
-  }
-  -- { import = 'custom.plugins' },
+  },
+
+  { import = 'plugins' },
 }, {})

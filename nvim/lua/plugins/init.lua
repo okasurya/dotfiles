@@ -1,4 +1,7 @@
 -- init.lua
 
-require('plugins.autoformat')
-require('plugins.debug')
+return {
+  require('plugins.autoformat'),
+  require('plugins.debug'),
+  require('plugins.octo'),
+}

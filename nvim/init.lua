@@ -11,4 +11,4 @@ require('style')
 require('editor')
 require('keymap')
 
-require('plugins.init')
+-- require('plugins.init')
