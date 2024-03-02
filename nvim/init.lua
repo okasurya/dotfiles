@@ -8,14 +8,6 @@ vim.g.maplocalleader = ' '
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-local openFn = 'xdg-open'
-local clipboard = 'unnamedplus'
-
--- Mac OS specific settings
-if vim.loop.os_uname().sysname == 'Darwin' then
-  openFn = 'open'
-  clipboard = 'unnamed,unnamedplus'
-end
 
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -259,6 +251,14 @@ require('lazy').setup({
   -- { import = 'custom.plugins' },
 }, {})
 
+local openFn = 'xdg-open'
+local clipboard = 'unnamedplus'
+
+-- Mac OS specific settings
+if vim.loop.os_uname().sysname == 'Darwin' then
+  openFn = 'open'
+  clipboard = 'unnamed,unnamedplus'
+end
 
 vim.cmd('highlight DiffAdd guifg=#3a3b3c guibg=#bada9f')
 vim.cmd('highlight DiffChange guifg=#3a3b3c guibg=#e5d5ac')
@@ -928,7 +928,7 @@ require('octo').setup({
   },
 })
 
-require 'kickstart.plugins.debug'
+require 'plugins.init'
 --[[ 
 -- Telescope keybindings
 --
