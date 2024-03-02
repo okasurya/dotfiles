@@ -1,4 +1,4 @@
 -- init.lua
 
-require 'plugins.autoformat'
-require 'plugins.debug'
+require('plugins.autoformat')
+require('plugins.debug')
