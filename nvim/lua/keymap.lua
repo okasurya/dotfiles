@@ -4,7 +4,7 @@
 -- [[ Basic Keymaps ]]
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
-vim.keymap.set('i', 'jk', '<Esc>', { silent = true })
+-- vim.keymap.set('i', 'jk', '<Esc>', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
@@ -83,7 +83,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
 -- [[ New Tab ]]
-vim.keymap.set({'n', 'i', 'v'}, '<C-t>', '<ESC>:tabnew<cr>', { desc = 'New Tab' })
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-t>', '<ESC>:tabnew<cr>', { desc = 'New Tab' })
 
 -- [[ Configure File tree ]]
 require('nvim-tree').setup {
@@ -368,4 +368,3 @@ cmp.setup {
     { name = 'path' },
   },
 }
-
