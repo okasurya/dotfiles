@@ -7,44 +7,11 @@ _dot_if() { [[ -r "$1" ]] && . "$1"; }
 
 # -------------------- prompt styling --------------------
 
-PROMPT_LONG=20
-PROMPT_MAX=95
 PROMPT_AT=@
 
 __ps1() {
-	local P='$' dir="${PWD##*/}" B countme short long double \
-		r='\[\e[31m\]' g='\[\e[30m\]' h='\[\e[34m\]' \
-		u='\[\e[33m\]' p='\[\e[34m\]' w='\[\e[35m\]' \
-		b='\[\e[36m\]' x='\[\e[0m\]' y='\[\e[97m\]'
-
-	[[ $EUID == 0 ]] && P='#' && u=$r && p=$u # root
-	[[ $PWD = / ]] && dir=/
-	[[ $PWD = "$HOME" ]] && dir='~'
-
-	B=$(git branch --show-current 2>/dev/null)
-	[[ $dir = "$B" ]] && B=.
-        # hostname is available from inetutils package
-	countme="$USER$PROMPT_AT$(hostname):$dir($B)\$ "
-
-	[[ $B == master || $B == main ]] && b="$r"
-	[[ -n "$B" ]] && B="$y($b$B$y)"
-
-	short="$u\u$y$PROMPT_AT$h\h$y:$w$dir$B$p$P$x "
-	long="$y╔ $u\u$y$PROMPT_AT$h\h$y:$w$dir$B\n$y╚ $p$P$x "
-	double="$y╔ $u\u$y$PROMPT_AT$h\h$y:$w$dir\n$y║ $B\n$y╚$p$P$x "
-
-	if ((${#countme} > PROMPT_MAX)); then
-		PS1="$double"
-	elif ((${#countme} > PROMPT_LONG)); then
-		PS1="$long"
-	else
-		PS1="$short"
-	fi
-}
-
-__ps1_simple() {
   local P='$' dir="${PWD##*/}" B short \
-    r='\[\e[31m\]' g='\[\e[30m\]' h='\[\e[34m\]' \
+    r='\[\e[31m\]' h='\[\e[34m\]' \
     u='\[\e[33m\]' p='\[\e[34m\]' w='\[\e[35m\]' \
     b='\[\e[36m\]' x='\[\e[0m\]' y='\[\e[97m\]'
 
@@ -61,7 +28,7 @@ __ps1_simple() {
   PS1="$short"
 }
 
-PROMPT_COMMAND="__ps1_simple"
+PROMPT_COMMAND="__ps1"
 
 # --------------------------------------------------------
 
