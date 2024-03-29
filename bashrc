@@ -28,7 +28,25 @@ __ps1() {
   PS1="$short"
 }
 
-PROMPT_COMMAND="__ps1"
+# append rather than overwrite
+shopt -s histappend
+# attempts to save all lines of a multiple-line command in the same history entry
+shopt -s cmdhist
+# with cmdhist, saved with embedded newlines rather than semicolon separators 
+shopt -s lithist
+
+HISTCONTROL=ignoreboth
+HISTSIZE=10000
+HISTFILESIZE=20000
+HISTTIMEFORMAT="%y/%m/%d %T "
+HISTIGNORE="history:ls:l:pwd:exit:"
+if [[ ${BASH_VERSION:0:1} -gt 5 || ${BASH_VERSION:0:1} -ge 5 && ${BASH_VERSION:2:1} -ge 1 ]]; then
+  PROMPT_COMMAND=("history -a" "history -c" "history -r" "__ps1")
+else
+  PROMPT_COMMAND="history -a; history -c; history -r; __ps1"
+fi
+
+# PROMPT_COMMAND="__ps1"
 
 # --------------------------------------------------------
 
@@ -73,6 +91,9 @@ _have maestro && export PATH=$PATH:$HOME/.maestro/bin
 _dot_if "/opt/homebrew/etc/profile.d/z.sh"
 _dot_if "/usr/share/z/z.sh"
 _dot_if "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+
+_have fzf && eval "$(fzf --bash)"
+_dot_if "/opt/homebrew/opt/fzf/shell/key-bindings.bash"
 
 # local config 
 # naming derived from brlntrc, shorten to brc 
