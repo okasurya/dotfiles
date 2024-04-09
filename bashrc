@@ -22,8 +22,10 @@ __ps1() {
   B=$(git branch --show-current 2>/dev/null)
   [[ $B == master || $B == main ]] && b="$r"
   [[ -n "$B" ]] && B="$y($b$B$y)"
+
+  T="$w[\D{%H:%M.%Z}]"
   
-  short="$u\u$y$PROMPT_AT$h\h$y:$w$dir$B\n$p$P$x "
+  short="$T $u\u$y$PROMPT_AT$h\h$y:$w$dir$B\n$p$P$x "
   
   PS1="$short"
 }
