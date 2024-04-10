@@ -10,24 +10,28 @@ _dot_if() { [[ -r "$1" ]] && . "$1"; }
 PROMPT_AT=@
 
 __ps1() {
-  local P='$' dir="${PWD##*/}" B short \
-        r='\[\e[31m\]' h='\[\e[34m\]' y='\[\e[97m\]' \
-        u='\[\e[33m\]' p='\[\e[34m\]' w='\[\e[35m\]' \
-        b='\[\e[36m\]' x='\[\e[0m\]' 
+  local P='$' dir="${PWD##*/}" B
 
+  # list of colors
+  local r='\[\e[32m\]' h='\[\e[34m\]' \
+  u='\[\e[33m\]' w='\[\e[35m\]' \
+  b='\[\e[36m\]' x='\[\e[0m\]' y='\[\e[37m\]'
+
+  # directory path format
   [[ $EUID == 0 ]] && P='#' && u=$r && p=$u # root
   [[ $PWD = / ]] && dir=/
   [[ $PWD = "$HOME" ]] && dir='~'
-  
+
+  # git branch format
   B=$(git branch --show-current 2>/dev/null)
   [[ $B == master || $B == main ]] && b="$r"
   [[ -n "$B" ]] && B="$y+$b$B"
 
+  # timestamp format
   T="$y[\D{%H.%M%z}]"
-  
-  short="$T $u\u$y$PROMPT_AT$h\h$y:$w$dir $B\n$p$P$x "
-  
-  PS1="$short"
+
+  # complete prompt format 
+  PS1="$T $u\u$y$PROMPT_AT$h\h$y:$w$dir $B\n$h$P$x "
 }
 
 # append rather than overwrite
@@ -47,8 +51,6 @@ if [[ ${BASH_VERSION:0:1} -gt 5 || ${BASH_VERSION:0:1} -ge 5 && ${BASH_VERSION:2
 else
   PROMPT_COMMAND="history -a; history -c; history -r; __ps1"
 fi
-
-# PROMPT_COMMAND="__ps1"
 
 # --------------------------------------------------------
 
