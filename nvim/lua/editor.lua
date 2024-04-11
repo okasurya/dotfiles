@@ -68,22 +68,3 @@ vim.api.nvim_create_user_command(
   end,
   { nargs = 1 }
 )
-
-
--- [[ Configure statusline ]]
-require('lualine').setup {
-  sections = {
-    lualine_c = {
-      {
-        'filename',
-        file_status = true,     -- Displays file status (readonly status, modified status)
-        newfile_status = false, -- Display new file status (new file means no write after created)
-        path = 1,               -- 0: Just the filename
-        -- 1: Relative path
-      }
-    }
-  }
-}
-
--- enable autoclose
-require("autoclose").setup()

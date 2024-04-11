@@ -37,7 +37,10 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim',       opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        opts = {}
+      },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -173,10 +176,20 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'auto',
         component_separators = '|',
         section_separators = '',
+      },
+      sections = {
+        lualine_c = {
+          {
+            'filename',
+            file_status = true,     -- Displays file status (readonly status, modified status)
+            newfile_status = false, -- Display new file status (new file means no write after created)
+            path = 1,               -- 0: Just the filename, 1: Relative path
+          }
+        }
       },
     },
   },
@@ -255,6 +268,11 @@ require('lazy').setup({
   {
     -- auto close brackets, quotes, etc
     'm4xshen/autoclose.nvim',
+    opts = {
+      options = {
+        disable_command_mode = true,
+      },
+    },
   },
 
   {

@@ -10,7 +10,7 @@ _dot_if() { [[ -r "$1" ]] && . "$1"; }
 PROMPT_AT=@
 
 __ps1() {
-  local P='$' dir="${PWD##*/}" B
+  local P='$' dir="${PWD##*/}" B T
 
   # list of colors
   local r='\[\e[32m\]' h='\[\e[34m\]' \

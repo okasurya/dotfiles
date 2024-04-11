@@ -1,5 +1,24 @@
 -- keymap.lua
 
+-- List of existing key chains
+require('which-key').register {
+  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+  ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+  ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+  ['<leader>q'] = { name = 'Diagnostic', _ = 'which_key_ignore' }
+}
+
+-- register which-key VISUAL mode
+require('which-key').register({
+  ['<leader>']  = { name = 'VISUAL <leader>' },
+  ['<leader>h'] = { 'Git [H]unk' },
+}, { mode = 'v' })
+
 -- [[ Basic Keymaps ]]
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -13,21 +32,22 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+vim.keymap.set('n', '<eader>qe', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>ql', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- [[ New Tab ]]
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-t>', '<ESC>:tabnew<cr>', { desc = 'New Tab' })
 
 -- [[ Configure File tree ]]
 require('nvim-tree').setup {
-  vim.keymap.set('n', '<leader>e', '<Esc>:NvimTreeToggle<cr>', { silent = true }),
-  vim.keymap.set('n', '<leader>f', '<Esc>:NvimTreeFindFile<cr>', { silent = true }),
-
   require('which-key').register {
     ['<leader>e'] = { name = 'File [E]xplorer', _ = 'which_key_ignore' },
     ['<leader>f'] = { name = '[F]ind File Explorer', _ = 'which_key_ignore' },
   },
+
+  vim.keymap.set('n', '<leader>e', '<Esc>:NvimTreeToggle<cr>', { silent = true }),
+  vim.keymap.set('n', '<leader>f', '<Esc>:NvimTreeFindFile<cr>', { silent = true }),
+
   filters = { custom = { "^.git$" } }, -- filter out git folder
   renderer = {
     icons = {
@@ -177,23 +197,6 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
--- document existing key chains
-require('which-key').register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-}
--- register which-key VISUAL mode
--- required for visual <leader>hs (hunk stage) to work
-require('which-key').register({
-  ['<leader>'] = { name = 'VISUAL <leader>' },
-  ['<leader>h'] = { 'Git [H]unk' },
-}, { mode = 'v' })
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
@@ -308,8 +311,8 @@ cmp.setup {
 
 -- telescope keymap
 -- See `:help telescope.builtin`
-local telbuiltin = require("telescope.builtin")
-local telutils = require("telescope.utils")
+local telbuiltin = require('telescope.builtin')
+-- local telutils = require("telescope.utils")
 local telactions = require("telescope.actions")
 
 -- Enable telescope fzf native, if installed
@@ -372,7 +375,7 @@ local function telescope_fuzzy_current_buffer()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   telbuiltin.current_buffer_fuzzy_find(
     require('telescope.themes').get_dropdown {
-      -- winblend = 10,
+      -- winblend = ,
       previewer = false,
     }
   )
