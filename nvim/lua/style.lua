@@ -1,9 +1,9 @@
 -- style.lua
 
-vim.cmd('highlight DiffAdd guifg=#3a3b3c guibg=#bada9f')
-vim.cmd('highlight DiffChange guifg=#3a3b3c guibg=#e5d5ac')
+vim.cmd('highlight DiffAdd guifg=#585a5c guibg=#bada9f')
+vim.cmd('highlight DiffChange guifg=#585a5c guibg=#e5d5ac')
 vim.cmd('highlight DiffDelete guifg=#ff8080 guibg=#ffb0b0 gui=bold')
-vim.cmd('highlight DiffText guifg=#3a3b3c guibg=#8cbee2')
+vim.cmd('highlight DiffText guifg=#585a5c guibg=#8cbee2')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
