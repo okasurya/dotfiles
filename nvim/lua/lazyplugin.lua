@@ -274,7 +274,11 @@ require('lazy').setup({
       },
     },
   },
-
+  {
+    'webdevel/tabulous',
+    config = function()
+    end,
+  },
   {
     -- import from local lua/plugins folder
     import = 'plugins'
