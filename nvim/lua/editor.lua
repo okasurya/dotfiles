@@ -60,6 +60,12 @@ vim.o.smarttab = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.cmd [[
+  let tabulousCloseStr = ''
+  let tabulousLabelNameOptions = ':p:t'
+  let tabulousLabelNameDefault = '[New]'
+]]
+
 -- open browser
 vim.api.nvim_create_user_command(
   'Browse',
