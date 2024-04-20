@@ -256,16 +256,6 @@ require('lazy').setup({
   },
 
   {
-    -- Github PR Review
-    'pwntester/octo.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'nvim-tree/nvim-web-devicons',
-    },
-  },
-
-  {
     -- auto close brackets, quotes, etc
     'm4xshen/autoclose.nvim',
     opts = {
