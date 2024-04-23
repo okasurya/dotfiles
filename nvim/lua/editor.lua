@@ -62,7 +62,7 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.cmd [[
   let tabulousCloseStr = ''
-  let tabulousLabelNameOptions = ':p:t'
+  let tabulousLabelNameOptions = ':p:.'
   let tabulousLabelNameDefault = '[New]'
 ]]
 
