@@ -394,3 +394,4 @@ vim.keymap.set('n', '<leader>sg', telbuiltin.live_grep, { desc = '[S]earch by [G
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', telbuiltin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', telbuiltin.resume, { desc = '[S]earch [R]esume' })
+vim.keymap.set('n', '<leader>gg', ':GBrowse<cr>', { desc = 'Go to git repo on browser' })
