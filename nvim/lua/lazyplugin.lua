@@ -203,7 +203,6 @@ require('lazy').setup({
     opts = {},
   },
 
-
   {
     -- "gc" to comment visual regions/lines
     'numToStr/Comment.nvim',
@@ -256,19 +255,11 @@ require('lazy').setup({
   },
 
   {
-    -- auto close brackets, quotes, etc
-    'm4xshen/autoclose.nvim',
-    opts = {
-      options = {
-        disable_command_mode = true,
-      },
-    },
-  },
-  {
     'webdevel/tabulous',
     config = function()
     end,
   },
+
   {
     -- import from local lua/plugins folder
     import = 'plugins'
