@@ -90,7 +90,7 @@ export PATH="$PATH:/opt/homebrew/bin"
 _have fvm && export PATH="$PATH:$HOME/fvm/default/bin"
 _have maestro && export PATH=$PATH:$HOME/.maestro/bin
 
-[[ -f "/Applications/Pritunl.app/Contents/Resources/pritunl-client" ]] && alias pritunl-client="/Applications/Pritunl.app/Contents/Resources/pritunl-client"
+[[ -f "/Applications/Pritunl.app/Contents/Resources/pritunl-client" ]] && export PATH="$PATH:/Applications/Pritunl.app/Contents/Resources"
 
 [[ -f "$HOME/vpn/start.sh" ]] && alias v="$HOME/vpn/start.sh"
 [[ -f "$HOME/vpn/stop.sh" ]] && alias vs="$HOME/vpn/stop.sh"
