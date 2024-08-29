@@ -22,7 +22,7 @@ if [[ ! -f "$HOME/.brc" ]]; then
     touch "$HOME/.brc"
 fi
 
-if [[ ! -d "$HOME/.config/nvim" ]]; then
+if [[ ! -d "$HOME/.config" ]]; then
     mkdir -p "$HOME/.config"
 fi
 
@@ -36,7 +36,7 @@ ln -sf "$PWD/nvim" "$HOME/.config"
 
 for i in vim alacritty; do
     cd $i && ./setup
-    cd -
+    cd - || { echo "cd failed"; exit 1; }
 done
 
 

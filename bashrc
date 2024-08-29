@@ -1,6 +1,21 @@
 # utility function
+_dir_exist() { 
+    if [[ -d "$1" ]]; then 
+        return 0 # return true (exit status 0) 
+    else
+        return 1
+    fi
+} 
+_file_exist() { 
+    if [[ -f "$1" ]]; then 
+        return 0 # return true (exit status 0) 
+    else
+        return 1
+    fi
+} 
 _have() { type "$1" &>/dev/null; }
 _source_if() { [[ -r "$1" ]] && source "$1"; }
+
 
 # usually for mac usage
 _dot_if() { [[ -r "$1" ]] && . "$1"; }
@@ -72,8 +87,10 @@ if _have pyenv; then
     alias pip="$(pyenv which pip)"
 fi
 
-_have kubectl && alias k=kubectl
-_have kubectl && complete -F __start_kubectl k
+if _have kubectl; then
+    alias k=kubectl
+    complete -o default -F __start_kubectl k
+fi
 
 if _have volta; then
     export VOLTA_HOME="$HOME/.volta"
@@ -86,12 +103,12 @@ if _have go; then
 fi
 
 # TODO: add checking if mac
-export PATH="$PATH:/opt/homebrew/bin"
+_dir_exist "/opt/homebrew/bin" && export PATH="$PATH:/opt/homebrew/bin"
 _have fvm && export PATH="$PATH:$HOME/fvm/default/bin"
 _have maestro && export PATH=$PATH:$HOME/.maestro/bin
 
-[[ -f "/Applications/Pritunl.app/Contents/Resources/pritunl-client" ]] && export PATH="$PATH:/Applications/Pritunl.app/Contents/Resources"
-
+# work VPN setup
+_file_exist "/Applications/Pritunl.app/Contents/Resources/pritunl-client" && export PATH="$PATH:/Applications/Pritunl.app/Contents/Resources"
 [[ -f "$HOME/vpn/start.sh" ]] && alias v="$HOME/vpn/start.sh"
 [[ -f "$HOME/vpn/stop.sh" ]] && alias vs="$HOME/vpn/stop.sh"
 
