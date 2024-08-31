@@ -75,6 +75,9 @@ _have vim && _have nvim && alias vim="nvim"
 _have nvim && export EDITOR="nvim"
 
 ## tools
+# TODO: add checking if mac
+_dir_exist "/opt/homebrew/bin" && export PATH="$PATH:/opt/homebrew/bin"
+
 if _have nordvpn; then
     alias nvp="nordvpn connect"
     alias nvpus="nordvpn connect united_states"
@@ -102,8 +105,6 @@ if _have go; then
     export PATH="$PATH:$GOPATH/bin"
 fi
 
-# TODO: add checking if mac
-_dir_exist "/opt/homebrew/bin" && export PATH="$PATH:/opt/homebrew/bin"
 _have fvm && export PATH="$PATH:$HOME/fvm/default/bin"
 _have maestro && export PATH=$PATH:$HOME/.maestro/bin
 
