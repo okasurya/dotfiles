@@ -10,6 +10,7 @@ require('which-key').register {
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
   ['<leader>q'] = { name = 'Diagnostic', _ = 'which_key_ignore' },
   ['<leader>i'] = { name = 'Install plugin', _ = 'which_key_ignore' },
+  ['<leader>l'] = { name = 'LaTex', _ = 'which_key_ignore' },
 }
 
 -- register which-key VISUAL mode
@@ -339,5 +340,9 @@ vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by 
 vim.keymap.set('n', '<leader>sd', telbuiltin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', telbuiltin.resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>gg', ':GBrowse<cr>', { desc = 'Go to git repo on browser' })
+
 vim.keymap.set('n', '<leader>im', ':Mason<cr>', { desc = 'Open Mason prompt' })
 vim.keymap.set('n', '<leader>il', ':Lazy<cr>', { desc = 'Open Lazy prompt' })
+
+vim.keymap.set('n', '<leader>lv', ':VimtexView<cr>', { desc = 'View' })
+vim.keymap.set('n', '<leader>lc', ':VimtexCompile<cr>', { desc = 'Compile' })
