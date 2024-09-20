@@ -146,14 +146,19 @@ git_current_branch() {
     echo ${ref#refs/heads/}
 }
 
+alias gs='git status'
+
+alias gco='git checkout'
+alias gcb='git checkout -b'
+
 alias gc!='git commit --verbose --amend'
 alias gc='git commit --verbose'
 
 alias gfa='git fetch --all --tags --prune --jobs=10'
 
 alias ggpull='git pull origin "$(git_current_branch)"'
-alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes'
 
+alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes'
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
 
 # kubectl alias
