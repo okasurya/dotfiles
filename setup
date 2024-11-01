@@ -2,21 +2,6 @@
 
 # first time setup
 
-# install vim plug
-if [[ ! -f "$HOME/.vim/autoload/plug.vim" ]]; then
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
-
-# install oh-my-zsh & theme
-if [[ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-if [[ ! -d "$HOME/.zsh/pure" ]]; then
-    mkdir -p "$HOME/.zsh"
-    git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
-fi
-
 # brc is short for brlntrc, my own local rc file
 if [[ ! -f "$HOME/.brc" ]]; then
     touch "$HOME/.brc"
