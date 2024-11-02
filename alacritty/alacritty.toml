@@ -23,7 +23,9 @@ dimensions.lines = 30
 padding.x = 10
 padding.y = 0
 
-[shell]
+[terminal]
+
+[terminal.shell]
 program = "/bin/bash"
 args = ["-l", "-c", "tmux"]
 
