@@ -270,6 +270,15 @@ require('telescope').setup {
         ["<C-w>"] = telactions.send_selected_to_qflist + telactions.open_qflist,
       },
     },
+    ripgrep_arguments = {
+      'rg',
+      '--hidden',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+    },
   },
 }
 
