@@ -167,6 +167,10 @@ function gr() {
     fi
 }
 
+if _have gh; then
+    alias grr='gh pr view --web'
+fi
+
 # kubectl alias
 # copied from oh-my-zsh plugin
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kubectl/kubectl.plugin.zsh
