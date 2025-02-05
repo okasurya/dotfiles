@@ -168,3 +168,7 @@ if _have kubectl; then
     alias k=kubectl
     complete -o default -F __start_kubectl k
 fi
+
+if _file_exist "/opt/homebrew/bin/terragrunt"; then
+    complete -C /opt/homebrew/bin/terragrunt terragrunt
+fi

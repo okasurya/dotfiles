@@ -59,3 +59,6 @@ _dot_if "/opt/homebrew/opt/asdf/libexec/asdf.sh"
 # local config 
 # naming derived from brlntrc, shorten to brc 
 _source_if "$HOME/.brc"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
