@@ -161,6 +161,12 @@ alias ggpull='git pull origin "$(git_current_branch)"'
 alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease --force-if-includes'
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
 
+function gr() {
+    if [ -d ".git" ]; then
+        open "$(git remote get-url origin | sed 's/:/\//; s/^git@/https:\/\//')"
+    fi
+}
+
 # kubectl alias
 # copied from oh-my-zsh plugin
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kubectl/kubectl.plugin.zsh
