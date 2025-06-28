@@ -62,3 +62,5 @@ _source_if "$HOME/.brc"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terragrunt terragrunt
+
+_dot_if "$HOME/.local/bin/env"

@@ -184,3 +184,5 @@ fi
 if _file_exist "/opt/homebrew/bin/terragrunt"; then
     complete -C /opt/homebrew/bin/terragrunt terragrunt
 fi
+
+_dot_if "$HOME/.local/bin/env"
