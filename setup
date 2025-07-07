@@ -19,6 +19,8 @@ ln -sf "$PWD/bashrc" "$HOME/.bashrc"
 ln -sf "$PWD/bashrc" "$HOME/.bash_profile"
 ln -sf "$PWD/nvim" "$HOME/.config"
 
+ln -sf "$PWD/wezterm/wezterm.lua" "$HOME/.wezterm.lua"
+
 for i in vim alacritty; do
     cd $i && ./setup
     cd - || { echo "cd failed"; exit 1; }
