@@ -25,12 +25,15 @@ _dot_if() { [[ -r "$1" ]] && . "$1"; }
 PROMPT_AT=@
 
 __ps1() {
-  local P='$' dir="${PWD##*/}" B T
-
   # list of colors
   local r='\[\e[32m\]' h='\[\e[34m\]' \
   u='\[\e[33m\]' w='\[\e[35m\]' \
   b='\[\e[36m\]' x='\[\e[0m\]' y='\[\e[37m\]'
+
+  local P='$' dir="" T B
+  
+  # timestamp format
+  T="[\D{%H.%M%z}]"
 
   # directory path format
   [[ $EUID == 0 ]] && P='#' && u=$r && p=$u # root
@@ -42,10 +45,6 @@ __ps1() {
   [[ $B == master || $B == main ]] && b="$r"
   [[ -n "$B" ]] && B="$y+$b$B"
 
-  # timestamp format
-  T="$y[\D{%H.%M%z}]"
-
-  # complete prompt format 
   PS1="$T $u\u$y$PROMPT_AT$h\h$y:$w$dir $B\n$h$P$x "
 }
 
@@ -103,14 +102,8 @@ fi
 _have fvm && export PATH="$PATH:$HOME/fvm/default/bin"
 _have maestro && export PATH=$PATH:$HOME/.maestro/bin
 
-# work VPN setup
-_file_exist "/Applications/Pritunl.app/Contents/Resources/pritunl-client" && export PATH="$PATH:/Applications/Pritunl.app/Contents/Resources"
-[[ -f "$HOME/vpn/start.sh" ]] && alias v="$HOME/vpn/start.sh"
-[[ -f "$HOME/vpn/stop.sh" ]] && alias vs="$HOME/vpn/stop.sh"
-
 _dot_if "/opt/homebrew/etc/profile.d/z.sh"
 _dot_if "/usr/share/z/z.sh"
-_dot_if "/opt/homebrew/opt/asdf/libexec/asdf.sh"
 
 _have fzf && eval "$(fzf --bash)"
 _dot_if "/opt/homebrew/opt/fzf/shell/key-bindings.bash"
@@ -122,7 +115,9 @@ _source_if "$HOME/.brc"
 # ----------------------- completion ---------------------
 
 _dot_if "/usr/local/etc/profile.d/bash_completion.sh"
-_dot_if "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+# TODO: SOMEHOW BROKEN
+# _dot_if "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 _have z && . <(z completion bash)
 
