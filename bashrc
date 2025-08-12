@@ -30,7 +30,9 @@ __ps1() {
   u='\[\e[33m\]' w='\[\e[35m\]' \
   b='\[\e[36m\]' x='\[\e[0m\]' y='\[\e[37m\]'
 
-  local P='$' dir="" T B
+  local P='$' dir=$PWD T B
+
+  # dir="${dir##*/}"
   
   # timestamp format
   T="[\D{%H.%M%z}]"
