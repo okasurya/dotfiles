@@ -15,8 +15,9 @@ fi
 # setup config
 ln -sf "$PWD/zshrc" "$HOME/.zshrc"
 ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$PWD/base_bash" "$HOME/.base_bash"
 ln -sf "$PWD/bashrc" "$HOME/.bashrc"
-ln -sf "$PWD/bashrc" "$HOME/.bash_profile"
+ln -sf "$PWD/bash_profile" "$HOME/.bash_profile"
 ln -sf "$PWD/nvim" "$HOME/.config"
 
 ln -sf "$PWD/wezterm/wezterm.lua" "$HOME/.wezterm.lua"
