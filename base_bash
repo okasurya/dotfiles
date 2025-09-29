@@ -182,6 +182,12 @@ function gwr() {
     git worktree remove -f "$1"
 }
 
+function gwar() {
+    local branch="$1"
+    local flattened="${branch//\//-}"
+    git worktree add --track -b "$branch" "worktree/$flattened" origin/$branch
+}
+
 # kubectl alias
 # copied from oh-my-zsh plugin
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kubectl/kubectl.plugin.zsh
