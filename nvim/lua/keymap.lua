@@ -1,16 +1,7 @@
 -- keymap.lua
 
 -- List of existing key chains
-require('which-key').register {
-  --  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  --  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  --  ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
-  --  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  --  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  --  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  --  ['<leader>q'] = { name = 'Diagnostic', _ = 'which_key_ignore' },
-  --  ['<leader>i'] = { name = 'Install plugin', _ = 'which_key_ignore' },
-  --  ['<leader>l'] = { name = 'LaTex', _ = 'which_key_ignore' },
+require('which-key').add {
   { "<leader>c",  group = "[C]ode" },
   { "<leader>c_", hidden = true },
   { "<leader>d",  group = "[D]ocument" },
@@ -32,7 +23,7 @@ require('which-key').register {
 }
 
 -- register which-key VISUAL mode
-require('which-key').register(
+require('which-key').add(
 -- {
 --   ['<leader>']  = { name = 'VISUAL <leader>' },
 --   ['<leader>h'] = { 'Git [H]unk' },
@@ -65,9 +56,7 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<C-t>', '<ESC>:tabnew<cr>', { desc = 'New Tab
 
 -- [[ Configure File tree ]]
 require('nvim-tree').setup {
-  require('which-key').register {
-    -- ['<leader>e'] = { name = 'File [E]xplorer', _ = 'which_key_ignore' },
-    -- ['<leader>f'] = { name = '[F]ind File Explorer', _ = 'which_key_ignore' },
+  require('which-key').add {
     { "<leader>e",  group = "File [E]xplorer" },
     { "<leader>e_", hidden = true },
     { "<leader>f",  group = "[F]ind File Explorer" },

@@ -69,10 +69,10 @@ if [[ ${BASH_VERSION:0:1} -gt 5 || ${BASH_VERSION:0:1} -ge 5 && ${BASH_VERSION:2
 else
   PROMPT_COMMAND="history -a; history -c; history -r; __ps1"
 fi
-
 # --------------------------------------------------------
 
 # alias & export
+_have brew && brew_etc="$(brew --prefix)/etc" && [[ -r "${brew_etc}/profile.d/bash_completion.sh" ]] && . "${brew_etc}/profile.d/bash_completion.sh"
 _have vim && export EDITOR="vim"
 _have vim && _have nvim && alias vim="nvim"
 _have nvim && export EDITOR="nvim"
@@ -193,7 +193,9 @@ function gwar() {
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kubectl/kubectl.plugin.zsh
 if _have kubectl; then
     alias k=kubectl
+    source <(kubectl completion bash)
     complete -o default -F __start_kubectl k
+
 fi
 
 if _file_exist "/opt/homebrew/bin/terragrunt"; then
