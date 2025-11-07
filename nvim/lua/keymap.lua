@@ -12,12 +12,16 @@ require('which-key').add {
   { "<leader>i_", hidden = true },
   { "<leader>l",  group = "LaTex" },
   { "<leader>l_", hidden = true },
+  { "<leader>o",  group = "[O]verseer" },
+  { "<leader>o_", hidden = true },
   { "<leader>q",  group = "Diagnostic" },
   { "<leader>q_", hidden = true },
   { "<leader>r",  group = "[R]ename" },
   { "<leader>r_", hidden = true },
   { "<leader>s",  group = "[S]earch" },
   { "<leader>s_", hidden = true },
+  { "<leader>t",  group = "[T]est/Terminal" },
+  { "<leader>t_", hidden = true },
   { "<leader>w",  group = "[W]orkspace" },
   { "<leader>w_", hidden = true },
 }
@@ -70,8 +74,8 @@ require('nvim-tree').setup {
   renderer = {
     icons = {
       show = {
-        file = false,
-        folder = false,
+        file = true,
+        folder = true,
         folder_arrow = true,
         git = true,
       },
@@ -373,3 +377,21 @@ vim.keymap.set('n', '<leader>il', ':Lazy<cr>', { desc = 'Open Lazy prompt' })
 
 vim.keymap.set('n', '<leader>lv', ':VimtexView<cr>', { desc = 'View' })
 vim.keymap.set('n', '<leader>lc', ':VimtexCompile<cr>', { desc = 'Compile' })
+
+require('diffview').setup()
+vim.keymap.set('n', '<leader>gv', ':DiffviewOpen<cr>', { desc = 'Git diff view' })
+vim.keymap.set('n', '<leader>gh', ':DiffviewFileHistory %<cr>', { desc = 'File history' })
+vim.keymap.set('n', '<leader>gH', ':DiffviewFileHistory<cr>', { desc = 'Branch history' })
+vim.keymap.set('n', '<leader>gc', ':DiffviewClose<cr>', { desc = 'Close diffview' })
+
+vim.keymap.set('n', 'leader>tf', ':ToggleTerm direction=float<cr>', { desc = 'Float terminal' })
+vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal<cr>', { desc = 'Horizontal terminal' })
+vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>', { desc = 'Vertical terminal' })
+
+
+require('telescope').load_extension('projects')
+vim.keymap.set('n', '<leader>sp', ':Telescope projects<cr>', { desc = 'Search projects' })
+
+require('overseer').setup()
+vim.keymap.set('n', '<leader>or', ':OverseerRun<cr>', { desc = 'Run task' })
+vim.keymap.set('n', '<leader>ot', ':OverseerToggle<cr>', { desc = 'Toggle tasks' })
