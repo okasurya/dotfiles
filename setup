@@ -11,6 +11,10 @@ if [[ ! -d "$HOME/.config" ]]; then
     mkdir -p "$HOME/.config"
 fi
 
+if [[ ! -d "$HOME/.aws/amazonq" ]]; then
+    mkdir -p "$HOME/.aws/amazonq"
+fi
+
 
 # setup config
 ln -sf "$PWD/zshrc" "$HOME/.zshrc"
@@ -21,6 +25,8 @@ ln -sf "$PWD/bash_profile" "$HOME/.bash_profile"
 ln -sf "$PWD/nvim" "$HOME/.config"
 
 ln -sf "$PWD/wezterm/wezterm.lua" "$HOME/.wezterm.lua"
+
+ln -sf "$PWD/prompts" "$HOME/.aws/amazonq"
 
 for i in vim alacritty; do
     cd $i && ./setup
