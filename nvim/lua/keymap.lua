@@ -361,6 +361,17 @@ vim.keymap.set('n', '<leader>?', telbuiltin.oldfiles, { desc = '[?] Find recentl
 vim.keymap.set('n', '<leader><space>', telbuiltin.buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', telescope_fuzzy_current_buffer, { desc = '[/] Fuzzily search in current buffer' })
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
+vim.keymap.set('n', '<leader>sm', function()
+  require('telescope.builtin').buffers({
+    only_cwd = false,
+    sort_mru = true,
+    ignore_current_buffer = false,
+    attach_mappings = function(_, map)
+      return true
+    end,
+  })
+end, { desc = '[S]earch [M]odified buffers' })
+
 vim.keymap.set('n', '<leader>ss', telbuiltin.builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>st', telbuiltin.git_files, { desc = 'Search Git Files' })
 vim.keymap.set('n', '<leader>sf', telbuiltin.find_files, { desc = '[S]earch [F]les' })
