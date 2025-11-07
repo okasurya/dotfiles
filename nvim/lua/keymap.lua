@@ -395,9 +395,15 @@ vim.keymap.set('n', '<leader>gh', ':DiffviewFileHistory %<cr>', { desc = 'File h
 vim.keymap.set('n', '<leader>gH', ':DiffviewFileHistory<cr>', { desc = 'Branch history' })
 vim.keymap.set('n', '<leader>gc', ':DiffviewClose<cr>', { desc = 'Close diffview' })
 
-vim.keymap.set('n', 'leader>tf', ':ToggleTerm direction=float<cr>', { desc = 'Float terminal' })
+vim.keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<cr>', { desc = 'Float terminal' })
 vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal<cr>', { desc = 'Horizontal terminal' })
 vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>', { desc = 'Vertical terminal' })
+vim.keymap.set("n", "<leader>tt", function()
+  local dir = vim.fn.expand("%:p:h")
+  require("toggleterm").toggle(1, nil, dir)
+end, { desc = "Toggle terminal in current file directory" })
+
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 
 require('telescope').load_extension('projects')
