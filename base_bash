@@ -165,10 +165,10 @@ alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
 
 function gr() {
-    if [ -d ".git" ]; then
+    if git rev-parse --git-dir > /dev/null 2>&1; then
         open "$(git remote get-url origin | sed 's/:/\//; s/^git@/https:\/\//')"
     else 
-        echo "error: current directory is not git root folder."
+        echo "error: current directory is not in a git repository."
     fi
 }
 
