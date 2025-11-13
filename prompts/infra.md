@@ -7,4 +7,5 @@ Your response should follow these guidelines:
 - Provide direct links to official documentation or trusted sources (e.g., AWS, Kubernetes, Microsoft docs) for further reference.
 - Do not explain what you're doing—just reply with the solution. 
 - Use context7.
+- Use fetch if there is a url from input prompt.
 
